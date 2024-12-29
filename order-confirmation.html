@@ -27,7 +27,23 @@
         </div>
     </div>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
     <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCUzEl1Ti-U8Op5W1lre2TZik8q3C3FWrk",
+            authDomain: "hacaobil.firebaseapp.com",
+            databaseURL: "https://hacaobil.firebaseio.com",
+            projectId: "hacaobil",
+            storageBucket: "hacaobil.firebasestorage.app",
+            messagingSenderId: "441182835045",
+            appId: "1:441182835045:web:6ede55672a7b8d0ac7518c"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
         document.addEventListener('DOMContentLoaded', () => {
             const orderDetailsContainer = document.getElementById('order-details');
             const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
@@ -76,39 +92,19 @@
                 timestamp: new Date().toLocaleString()
             };
 
-            fetch('https://script.google.com/macros/s/AKfycbzPgBKXMS7fTREofF1j0T7vhCkKaszsAKUplfCe4ZSyNS4NJ44M_lQWZf2vcpNH6WXY/exec', {
-                method: 'POST',
-                body: JSON.stringify(orderData),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'success') {
+            // Save order data to Firebase Realtime Database
+            firebase.database().ref('orders').push(orderData)
+                .then(() => {
                     document.getElementById('order-status-message').textContent = 'Đơn hàng đã đặt thành công!';
                     document.getElementById('order-status-icon').src = 'https://via.placeholder.com/50/00ff00?text=%E2%9C%94';
-
-                    // Fetch data from Google Sheets API
-                    const apiKey = 'AIzaSyBvoZDLPeSqpPXbP2d_FudI-pbacpaYuDo';
-                    const url = `https://sheets.googleapis.com/v4/spreadsheets/1T_PPyNS1XNEvxMLaXhhpP_ZH3KD_Kqy2C9YhuNPD9HI/values/data!A1:D5?key=${apiKey}`;
-                    fetch(url)
-                      .then(response => response.json())
-                      .then(data => console.log(data))
-                      .catch(error => console.error('Error:', error));
-                } else {
+                    document.getElementById('order-status').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                     document.getElementById('order-status-message').textContent = 'Đặt đơn hàng thất bại, vui lòng thử lại.';
-                    document.getElementById('order-status-icon').src = 'img\error.png';
-                    console.error('Error:', data);
-                }
-                document.getElementById('order-status').style.display = 'block';
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('order-status-message').textContent = 'Đặt đơn hàng thất bại, vui lòng thử lại.';
-                document.getElementById('order-status-icon').src = 'img\error.png';
-                document.getElementById('order-status').style.display = 'block';
-            });
+                    document.getElementById('order-status-icon').src = 'https://via.placeholder.com/50/ff0000?text=%E2%9C%98';
+                    document.getElementById('order-status').style.display = 'block';
+                });
         }
     </script>
 </body>
