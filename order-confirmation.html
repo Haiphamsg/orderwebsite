@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="screen" id="order-confirmation">
+        <header>
+            <h1>Order Confirmation</h1>
+        </header>
+        <div class="order-details" id="order-details">
+            <!-- Order details will be dynamically added here -->
+        </div>
+        <div class="confirmation">
+            <p>Your food is on the way!</p>
+            <p>Thank you for your order! You can track the delivery in the "Orders" section.</p>
+            <p>Estimated Delivery Time: <b>24 mins</b></p>
+        </div>
+        <button class="track-btn">Track My Order</button>
+        <button class="new-order-btn" onclick="placeNewOrder()">Order Something Else</button>
+        <div id="order-status" style="display: none;">
+            <p id="order-status-message"></p>
+            <img id="order-status-icon" src="" alt="" style="width: 50px; height: 50px;">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderDetailsContainer = document.getElementById('order-details');
+            const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+            const orderQuantities = JSON.parse(localStorage.getItem('orderQuantities')) || [];
+
+            if (orderDetails) {
+                orderDetailsContainer.innerHTML = `
+                    <h3>Order Details</h3>
+                    <p><b>Tên:</b> ${orderDetails.name}</p>
+                    <p><b>Địa chỉ:</b> ${orderDetails.address}</p>
+                    <p><b>SĐT:</b> ${orderDetails.phone}</p>
+                    <p><b>Hình thức thanh toán:</b> ${orderDetails.paymentMethod}</p>
+                    <h3>Items Ordered</h3>
+                `;
+
+                let totalAmount = 0;
+
+                orderQuantities.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.classList.add('item');
+                    itemElement.innerHTML = `
+                        <div class="item-info">
+                            <h4>${item.name}</h4>
+                            <p>Số lượng: ${item.quantity}</p>
+                            <p>Đơn giá: ${item.price.toLocaleString()} VND</p>
+                            <p>Thành tiền: ${(item.price * item.quantity).toLocaleString()} VND</p>
+                        </div>
+                    `;
+                    orderDetailsContainer.appendChild(itemElement);
+
+                    totalAmount += item.price * item.quantity;
+                });
+
+                const totalElement = document.createElement('p');
+                totalElement.innerHTML = `<b>Tổng tiền:</b> ${totalAmount.toLocaleString()} VND`;
+                orderDetailsContainer.appendChild(totalElement);
+            }
+        });
+
+        function placeNewOrder() {
+            const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+            const orderQuantities = JSON.parse(localStorage.getItem('orderQuantities')) || [];
+            const orderData = {
+                ...orderDetails,
+                items: orderQuantities,
+                timestamp: new Date().toLocaleString()
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbw6t7oEosTR6LqSfAzbSENG_OW3aPOMX2Za_6vyLe8uqJLJGJl4_15d_YuHGK1wosH2/exec', {
+                method: 'POST',
+                body: JSON.stringify(orderData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    document.getElementById('order-status-message').textContent = 'Đơn hàng đã đặt thành công!';
+                    document.getElementById('order-status-icon').src = 'https://via.placeholder.com/50/00ff00?text=%E2%9C%94';
+
+                    // Fetch data from Google Sheets API
+                    const apiKey = 'AIzaSyBvoZDLPeSqpPXbP2d_FudI-pbacpaYuDo';
+                    const url = `https://sheets.googleapis.com/v4/spreadsheets/1T_PPyNS1XNEvxMLaXhhpP_ZH3KD_Kqy2C9YhuNPD9HI/values/data!A1:D5?key=${apiKey}`;
+                    fetch(url)
+                      .then(response => response.json())
+                      .then(data => console.log(data))
+                      .catch(error => console.error('Error:', error));
+                } else {
+                    document.getElementById('order-status-message').textContent = 'Đặt đơn hàng thất bại, vui lòng thử lại.';
+                    document.getElementById('order-status-icon').src = 'img\error.png';
+                    console.error('Error:', data);
+                }
+                document.getElementById('order-status').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('order-status-message').textContent = 'Đặt đơn hàng thất bại, vui lòng thử lại.';
+                document.getElementById('order-status-icon').src = 'img\error.png';
+                document.getElementById('order-status').style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>

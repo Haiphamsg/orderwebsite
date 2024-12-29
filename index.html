@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Bà Bi Lùn</h1>
+            <img src="https://via.placeholder.com/40" alt="User">
+        </header>
+
+        <!-- Search bar -->
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Tìm kiếm món ăn">
+            <button onclick="searchItems()">Search</button>
+        </div>
+
+        <!-- Categories -->
+        <!-- <div class="categories">
+            <button class="active">All</button>
+            <button>Combos</button>
+            <button>Sliders</button>
+            <button>Classics</button>
+        </div> -->
+
+        <!-- Menu items -->
+        <div class="menu" id="menu-items">
+            <!-- Item 1 -->
+            <div class="menu-item">
+                <img src="BURHAM_1.webp" alt="Cheeseburger">
+                <div class="details">
+                    <h3>Cheeseburger</h3>
+                    <p>Wendy's Burger</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.9</span>
+                        <i class="fa-regular fa-thumbs-up"></i>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="decrease" onclick="changeQuantity(this, -1)">-</button>
+                        <span class="quantity">0</span>
+                        <button class="increase" onclick="changeQuantity(this, 1)">+</button>
+                    </div>
+                    <div class="price" data-price="50000">Đơn giá: 50,000 VND</div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/150" alt="Hamburger">
+                <div class="details">
+                    <h3>Hamburger</h3>
+                    <p>Veggie Burger</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.8</span>
+                        <i class="fas fa-heart fav"></i>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="decrease" onclick="changeQuantity(this, -1)">-</button>
+                        <span class="quantity">0</span>
+                        <button class="increase" onclick="changeQuantity(this, 1)">+</button>
+                    </div>
+                    <div class="price" data-price="40000">Đơn giá: 40,000 VND</div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/150" alt="Chicken Burger">
+                <div class="details">
+                    <h3>Hamburger</h3>
+                    <p>Chicken Burger</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.6</span>
+                        <i class="fa-regular fa-thumbs-up"></i>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="decrease" onclick="changeQuantity(this, -1)">-</button>
+                        <span class="quantity">0</span>
+                        <button class="increase" onclick="changeQuantity(this, 1)">+</button>
+                    </div>
+                    <div class="price" data-price="45000">Đơn giá: 45,000 VND</div>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/150" alt="Fried Chicken Burger">
+                <div class="details">
+                    <h3>Hamburger</h3>
+                    <p>Fried Chicken Burger</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.5</span>
+                        <i class="fas fa-heart fav"></i>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="decrease" onclick="changeQuantity(this, -1)">-</button>
+                        <span class="quantity">0</span>
+                        <button class="increase" onclick="changeQuantity(this, 1)">+</button>
+                    </div>
+                    <div class="price" data-price="55000">Đơn giá: 55,000 VND</div>
+                </div>
+            </div>
+        </div>
+        <!-- Confirm Button -->
+        <div class="confirm-button">
+            <button onclick="redirectToConfirmPage()">Confirm</button>
+        </div>
+    </div>
+
+    <script>
+        function changeQuantity(button, change) {
+            const quantitySpan = button.parentElement.querySelector('.quantity');
+            let currentQuantity = parseInt(quantitySpan.textContent);
+            currentQuantity += change;
+            if (currentQuantity < 0) {
+                currentQuantity = 0;
+            }
+            quantitySpan.textContent = currentQuantity;
+        }
+
+        function redirectToConfirmPage() {
+            const quantities = Array.from(document.querySelectorAll('.menu-item')).map(item => {
+                const name = item.querySelector('h3').textContent;
+                const quantity = parseInt(item.querySelector('.quantity').textContent);
+                const price = parseInt(item.querySelector('.price').getAttribute('data-price'));
+                const image = item.querySelector('img').src;
+                return { name, quantity, price, image };
+            });
+            localStorage.setItem('orderQuantities', JSON.stringify(quantities));
+            window.location.href = 'order-summary.html';
+        }
+
+        function searchItems() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const menuItems = document.querySelectorAll('.menu-item');
+
+            menuItems.forEach(item => {
+                const itemName = item.querySelector('h3').textContent.toLowerCase();
+                if (itemName.includes(searchInput)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
