@@ -79,6 +79,7 @@
             console.log('Order Data:', orderData);
 
             fetch('https://script.google.com/macros/s/AKfycbzXKXIIpn5HjZqHBkuyZhZ9Tvyo9vya6y48B18DkQsSG8s7Wl8O0dKcGxGtVj9xR6R4/exec', {
+                redirect: "follow",
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -93,7 +94,7 @@
                     document.getElementById('order-status').style.display = 'block';
                 } else {
                     document.getElementById('order-status-message').textContent = 'Đặt hàng thất bại!';
-                    document.getElementById('order-status-icon').src = 'https://via.placeholder.com/50/ff0000?text=%E2%9C%96';
+                    document.getElementById('order-status-icon').src = 'img\error.png';
                     document.getElementById('order-status').style.display = 'block';
                 }
             })
