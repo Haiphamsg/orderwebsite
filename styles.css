@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     background-color: #f8f8f8;
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 header h1 {
@@ -59,7 +59,7 @@ header img {
 #suggestions-container {
     position: absolute;
     background: white;
-    border: 1px solid #ccc;
+    border: 1px #ccc;
     width: 100%;
     max-height: 200px;
     overflow-y: auto;
@@ -114,6 +114,7 @@ header img {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     display: flex; 
     align-items: center;
+    margin-top: 10px;
 }
 
 .menu-item img {
@@ -156,9 +157,9 @@ header img {
     cursor: pointer;
 }
 
-.menu-item .details .rating .fav.active {
+/* .menu-item .details .rating .fav.active {
     color: #ff4757;
-}
+}*/
 
 .menu-item .details .quantity-controls {
     display: flex;
