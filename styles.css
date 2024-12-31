@@ -22,8 +22,9 @@ header h1 {
 }
 
 header img {
-    width: 40px;
-    height: 40px;
+    padding-top: 10px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
 }
 
@@ -31,6 +32,10 @@ header img {
     display: flex;
     align-items: center;
     margin: 20px 0;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .search-bar input {
@@ -49,6 +54,30 @@ header img {
     border-radius: 50%;
     padding: 10px;
     cursor: pointer;
+}
+
+#suggestions-container {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-top: none;
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+
+.suggestion:hover {
+    background: #f0f0f0;
 }
 
 .categories {
