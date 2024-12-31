@@ -152,12 +152,12 @@ header img {
     color: #f39c12;
 }
 
-.menu-item .details .rating .fav {
+/* .menu-item .details .rating .fav {
     color: #ccc;
     cursor: pointer;
 }
 
-/* .menu-item .details .rating .fav.active {
+ .menu-item .details .rating .fav.active {
     color: #ff4757;
 }*/
 
@@ -194,10 +194,10 @@ header img {
 }
 
 .confirm-button button {
-    background-color: #28a745;
+    background-color: #B3D328;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 30px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
@@ -205,7 +205,7 @@ header img {
 }
 
 .confirm-button button:hover {
-    background-color: #218838;
+    background-color: #046865;
 }
 
 .screen {
