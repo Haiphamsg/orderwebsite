@@ -31,42 +31,48 @@
 
         <!-- Menu -->
         <div class="menu">
-            <div class="menu-item" data-name="Cheeseburger" data-price="50000">
-                <img src="img/BURHAM_1.webp" alt="Cheeseburger">
-                <div class="details">
-                    <h3>Cheeseburger</h3>
-                    <p>Wendy's Burger</p>
-                    <div class="rating">
-                        <span class="stars">⭐ 5.0</span>
+            <div id="menu-items">
+                <div class="menu-item" data-name="Cheeseburger" data-price="50000">
+                    <img src="img/BURHAM_1.webp" alt="Cheeseburger">
+                    <div class="details">
+                        <h3>Cheeseburger</h3>
+                        <p>Wendy's Burger</p>
+                        <div class="rating">
+                            <span class="stars">⭐ 5.0</span>
+                        </div>
+                        <p>Đơn giá: <span class="price">50,000 VND</span></p>
+                        <div class="quantity-controls">
+                            <button onclick="changeQuantity(this, -1)">-</button>
+                            <span class="quantity">0</span>
+                            <button onclick="changeQuantity(this, 1)">+</button>
+                        </div>
                     </div>
-                    <p>Đơn giá: <span class="price">50,000 VND</span></p>
-                    <div class="quantity-controls">
-                        <button onclick="changeQuantity(this, -1)">-</button>
-                        <span class="quantity">0</span>
-                        <button onclick="changeQuantity(this, 1)">+</button>
-                    </div>
-                    <p>Thành tiền: <span class="total-price">0 VND</span></p>
                 </div>
-            </div>
-            <div class="menu-item" data-name="Hamburger" data-price="40000">
-                <img src="img/BURHAM_1.webp" alt="Hamburger">
-                <div class="details">
-                    <h3>Hamburger</h3>
-                    <p>Wendy's Burger</p>
-                    <div class="rating">
-                        <span class="stars">⭐ 4.5</span>
+                <div class="menu-item" data-name="Hamburger" data-price="40000">
+                    <img src="img/BURHAM_1.webp" alt="Hamburger">
+                    <div class="details">
+                        <h3>Hamburger</h3>
+                        <p>Wendy's Burger</p>
+                        <div class="rating">
+                            <span class="stars">⭐ 4.5</span>
+                        </div>
+                        <p>Đơn giá: <span class="price">40,000 VND</span></p>
+                        <div class="quantity-controls">
+                            <button onclick="changeQuantity(this, -1)">-</button>
+                            <span class="quantity">0</span>
+                            <button onclick="changeQuantity(this, 1)">+</button>
+                        </div>
                     </div>
-                    <p>Đơn giá: <span class="price">40,000 VND</span></p>
-                    <div class="quantity-controls">
-                        <button onclick="changeQuantity(this, -1)">-</button>
-                        <span class="quantity">0</span>
-                        <button onclick="changeQuantity(this, 1)">+</button>
-                    </div>
-                    <p>Thành tiền: <span class="total-price">0 VND</span></p>
                 </div>
+                <!-- Add more menu items as needed -->
             </div>
-            <!-- Add more menu items as needed -->
         </div>
+
+        <!-- Total Bill -->
+        <div id="total-bill">
+            Tổng hóa đơn: <span id="total-price">0 VND</span>
+        </div>
+
         <!-- Confirm Button -->
         <div class="confirm-button">
             <button onclick="redirectToConfirmPage()">Confirm</button>
@@ -138,11 +144,19 @@
             }
             quantitySpan.textContent = currentQuantity;
 
-            // Update total price
-            const menuItem = button.closest('.menu-item');
-            const price = parseInt(menuItem.getAttribute('data-price'));
-            const totalPriceSpan = menuItem.querySelector('.total-price');
-            totalPriceSpan.textContent = (currentQuantity * price).toLocaleString() + ' VND';
+            // Update total bill
+            updateTotalBill();
+        }
+
+        function updateTotalBill() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            let totalPrice = 0;
+            menuItems.forEach(item => {
+                const price = parseInt(item.getAttribute('data-price'));
+                const quantity = parseInt(item.querySelector('.quantity').textContent);
+                totalPrice += price * quantity;
+            });
+            document.getElementById('total-price').textContent = totalPrice.toLocaleString() + ' VND';
         }
 
         function redirectToConfirmPage() {
