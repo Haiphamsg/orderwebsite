@@ -112,7 +112,7 @@ header img {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex; /* Hide all items by default */
+    display: flex; 
     align-items: center;
 }
 
