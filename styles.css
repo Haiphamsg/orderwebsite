@@ -17,15 +17,19 @@ header {
 }
 
 header h1 {
-    font-size: 24px;
-    color: #333;
+    font-size: 30px;
+    font-family: 'Be Vietnam Pro', cursive;
+    color: #ad0909;
 }
 
 header img {
     padding-top: 10px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 4px solid transparent;
 }
 
 .search-bar {
@@ -36,6 +40,7 @@ header img {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
+    
 }
 
 .search-bar input {
@@ -194,7 +199,7 @@ header img {
 }
 
 .confirm-button button {
-    background-color: #B3D328;
+    background-color:#046865 ;
     color: white;
     border: none;
     padding: 10px 30px;
@@ -205,7 +210,7 @@ header img {
 }
 
 .confirm-button button:hover {
-    background-color: #046865;
+    background-color: #21A0A0;
 }
 
 .screen {
@@ -224,7 +229,7 @@ header img {
 }
 
 .item {
-    display: flex;
+    display: block;
     align-items: center;
     gap: 20px;
     background-color: #fff;
@@ -243,8 +248,8 @@ header img {
 
 .item-info {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .item-info .details {
@@ -298,7 +303,7 @@ special-request textarea {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 14px;
-    resize: vertical;
+    resize: vertical; 
 }
 
 .promo {
