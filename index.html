@@ -11,14 +11,14 @@
     <div class="container">
         <!-- Header -->
         <header>
+            <img src="img\logo.jpg" alt="logo">
             <h1>Bà Bi Lùn</h1>
-            <img src="https://via.placeholder.com/40" alt="User">
         </header>
 
         <!-- Search bar -->
         <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Tìm kiếm món ăn">
-            <button onclick="searchItems()">Search</button>
+            <input type="text" id="search-input" placeholder="Tìm kiếm món ăn" oninput="showSuggestions()" onkeydown="handleKeyDown(event)">
+            <div id="suggestions-container"></div>
         </div>
 
         <!-- Categories -->
@@ -133,18 +133,52 @@
             window.location.href = 'order-summary.html';
         }
 
-        function searchItems() {
-            const searchInput = document.getElementById('search-input').value.toLowerCase();
-            const menuItems = document.querySelectorAll('.menu-item');
+        const items = [
+            "Cheeseburger",
+            "Hamburger",
+            "Pizza",
+            "Sushi",
+            "Pasta",
+            "Salad",
+            "Sandwich",
+            "Steak",
+            "Taco",
+            "Burrito"
+        ];
 
-            menuItems.forEach(item => {
-                const itemName = item.querySelector('h3').textContent.toLowerCase();
-                if (itemName.includes(searchInput)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+        function showSuggestions() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const suggestionsContainer = document.getElementById('suggestions-container');
+            suggestionsContainer.innerHTML = '';
+
+            if (input) {
+                const suggestions = items.filter(item => item.toLowerCase().includes(input));
+                suggestions.forEach(suggestion => {
+                    const suggestionElement = document.createElement('div');
+                    suggestionElement.classList.add('suggestion');
+                    suggestionElement.textContent = suggestion;
+                    suggestionElement.onclick = () => selectSuggestion(suggestion);
+                    suggestionsContainer.appendChild(suggestionElement);
+                });
+            }
+        }
+
+        function selectSuggestion(suggestion) {
+            document.getElementById('search-input').value = suggestion;
+            document.getElementById('suggestions-container').innerHTML = '';
+            searchItems();
+        }
+
+        function handleKeyDown(event) {
+            if (event.key === 'Enter') {
+                searchItems();
+            }
+        }
+
+        function searchItems() {
+            const query = document.getElementById('search-input').value;
+            alert(`Searching for: ${query}`);
+            // Implement your search logic here
         }
     </script>
 </body>
