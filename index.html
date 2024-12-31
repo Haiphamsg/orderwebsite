@@ -30,7 +30,8 @@
         </div> -->
 
         <!-- Menu items -->
-        <div id="menu-items">
+        <div id="menu">
+            <!-- Menu items 1-->
             <div class="menu-item" data-name="Cheeseburger">
                 <img src="img/BURHAM_1.webp" alt="Cheeseburger">
                 <div class="details">
@@ -41,6 +42,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Menu items 2-->
             <div class="menu-item" data-name="Hamburger">
                 <img src="img/BURHAM_1.webp" alt="Hamburger">
                 <div class="details">
@@ -52,6 +54,42 @@
                 </div>
             </div>
             <!-- Add more menu items as needed -->
+        <div id="menu-items">
+            <div class="menu-item" data-name="Cheeseburger" data-price="50000">
+                <img src="img/BURHAM_1.webp" alt="Cheeseburger">
+                <div class="details">
+                    <h3>Cheeseburger</h3>
+                    <p>Wendy's Burger</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 5.0</span>
+                    </div>
+                    <p>Đơn giá: <span class="price">50,000 VND</span></p>
+                    <div class="quantity-controls">
+                        <button onclick="changeQuantity(this, -1)">-</button>
+                        <span class="quantity">0</span>
+                        <button onclick="changeQuantity(this, 1)">+</button>
+                    </div>
+                    <p>Thành tiền: <span class="total-price">0 VND</span></p>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Hamburger" data-price="40000">
+                <img src="img/BURHAM_1.webp" alt="Hamburger">
+                <div class="details">
+                    <h3>Hamburger</h3>
+                    <p>Wendy's Burger</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.5</span>
+                    </div>
+                    <p>Đơn giá: <span class="price">40,000 VND</span></p>
+                    <div class="quantity-controls">
+                        <button onclick="changeQuantity(this, -1)">-</button>
+                        <span class="quantity">0</span>
+                        <button onclick="changeQuantity(this, 1)">+</button>
+                    </div>
+                    <p>Thành tiền: <span class="total-price">0 VND</span></p>
+                </div>
+            </div>
+            <!-- Add more menu items as needed -->
         </div>
         <!-- Confirm Button -->
         <div class="confirm-button">
@@ -60,28 +98,6 @@
     </div>
 
     <script>
-        function changeQuantity(button, change) {
-            const quantitySpan = button.parentElement.querySelector('.quantity');
-            let currentQuantity = parseInt(quantitySpan.textContent);
-            currentQuantity += change;
-            if (currentQuantity < 0) {
-                currentQuantity = 0;
-            }
-            quantitySpan.textContent = currentQuantity;
-        }
-
-        function redirectToConfirmPage() {
-            const quantities = Array.from(document.querySelectorAll('.menu-item')).map(item => {
-                const name = item.querySelector('h3').textContent;
-                const quantity = parseInt(item.querySelector('.quantity').textContent);
-                const price = parseInt(item.querySelector('.price').getAttribute('data-price'));
-                const image = item.querySelector('img').src;
-                return { name, quantity, price, image };
-            });
-            localStorage.setItem('orderQuantities', JSON.stringify(quantities));
-            window.location.href = 'order-summary.html';
-        }
-
         const items = [
             "Cheeseburger",
             "Hamburger",
@@ -135,6 +151,34 @@
                     item.style.display = 'none';
                 }
             });
+        }
+
+        function changeQuantity(button, change) {
+            const quantitySpan = button.parentElement.querySelector('.quantity');
+            let currentQuantity = parseInt(quantitySpan.textContent);
+            currentQuantity += change;
+            if (currentQuantity < 0) {
+                currentQuantity = 0;
+            }
+            quantitySpan.textContent = currentQuantity;
+
+            // Update total price
+            const menuItem = button.closest('.menu-item');
+            const price = parseInt(menuItem.getAttribute('data-price'));
+            const totalPriceSpan = menuItem.querySelector('.total-price');
+            totalPriceSpan.textContent = (currentQuantity * price).toLocaleString() + ' VND';
+        }
+
+        function redirectToConfirmPage() {
+            const quantities = Array.from(document.querySelectorAll('.menu-item')).map(item => {
+                const name = item.querySelector('h3').textContent;
+                const quantity = parseInt(item.querySelector('.quantity').textContent);
+                const price = parseInt(item.querySelector('.price').getAttribute('data-price'));
+                const image = item.querySelector('img').src;
+                return { name, quantity, price, image };
+            });
+            localStorage.setItem('orderQuantities', JSON.stringify(quantities));
+            window.location.href = 'order-summary.html';
         }
     </script>
 </body>
