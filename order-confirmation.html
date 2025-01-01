@@ -5,25 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Confirmation</title>
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
-    <div class="screen" id="order-confirmation">
+    <div class="screen-end" id="order-confirmation">
         <header>
-            <h1>Order Confirmation</h1>
+            <h1 class="order-confirmation">Đơn hàng của bạn</h1>
         </header>
         <div class="order-details" id="order-details">
             <!-- Order details will be dynamically added here -->
         </div>
         <div class="confirmation">
-            <p>Your food is on the way!</p>
+            <!-- <p>Your food is on the way!</p>
             <p>Thank you for your order! You can track the delivery in the "Orders" section.</p>
-            <p>Estimated Delivery Time: <b>24 mins</b></p>
+            <p>Estimated Delivery Time: <b>24 mins</b></p> -->
         </div>
-        <button class="track-btn">Track My Order</button>
-        <button class="new-order-btn" onclick="placeNewOrder()">Order Something Else</button>
+        <!-- <button class="track-btn">Track My Order</button> -->
+        <button class="order-complete" onclick="ordercomplete()">Hoàn tất đơn hàng</button>
         <div id="order-status" style="display: none;">
             <p id="order-status-message"></p>
             <img id="order-status-icon" src="" alt="" style="width: 50px; height: 50px;">
+        </div>
+    </div>
+
+    <div id="loading-overlay" style="display: none;">
+        <div id="loading-spinner">
+            <img src="img/loading.gif" alt="Loading...">
+        </div>
+    </div>
+    <div id="success-popup" style="display: none;">
+        <div class="popup-content">
+            <img src="img/success.gif" alt="Success">
+            <p>Đặt hàng thành công!</p>
+            <button onclick="closePopup()">Đóng</button>
         </div>
     </div>
 
@@ -32,53 +46,74 @@
             const orderDetailsContainer = document.getElementById('order-details');
             const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
             const orderQuantities = JSON.parse(localStorage.getItem('orderQuantities')) || [];
+            const orderNote = localStorage.getItem('orderNote');
 
             if (orderDetails) {
                 orderDetailsContainer.innerHTML = `
-                    <h3>Order Details</h3>
-                    <p><b>Tên:</b> ${orderDetails.name}</p>
-                    <p><b>Địa chỉ:</b> ${orderDetails.address}</p>
-                    <p><b>SĐT:</b> ${orderDetails.phone}</p>
-                    <p><b>Hình thức thanh toán:</b> ${orderDetails.paymentMethod}</p>
-                    <h3>Items Ordered</h3>
+                    <h3>Chi tiết đơn hàng</h3>
+                    <hr size = "1px" width = "100%" color = "#9B9B9B">
+                    <p>Người đặt:<b> ${orderDetails.name}</b></p>
+                    <p>Địa chỉ giao hàng:<b> ${orderDetails.address}</b></p>
+                    <p>SĐT: <b>${orderDetails.phone}</b></p>
+                    <p>Hình thức thanh toán:<b> ${orderDetails.paymentMethod}</b></p>
+                    <h3>Món bạn chọn</h3>
                 `;
 
                 let totalAmount = 0;
 
                 orderQuantities.forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.classList.add('item');
-                    itemElement.innerHTML = `
-                        <div class="item-info">
-                            <h4>${item.name}</h4>
-                            <p>Số lượng: ${item.quantity}</p>
-                            <p>Đơn giá: ${item.price.toLocaleString()} VND</p>
-                            <p>Thành tiền: ${(item.price * item.quantity).toLocaleString()} VND</p>
-                        </div>
-                    `;
-                    orderDetailsContainer.appendChild(itemElement);
+                    if (item.quantity > 0) {
+                        const itemElement = document.createElement('div');
+                        itemElement.classList.add('item');
+                        itemElement.innerHTML = `
+                            <div class="item-info">
+                                <img src="${item.image}" alt="${item.name}">
+                                <div class="details">
+                                    <h4>${item.name}</h4>
+                                    <p>Số lượng: ${item.quantity}</p>
+                                    <p>Đơn giá: ${item.price ? item.price.toLocaleString() : 'N/A'} VND</p>
+                            </div>
+                        `;
+                        orderDetailsContainer.appendChild(itemElement);
 
-                    totalAmount += item.price * item.quantity;
+                        if (item.price) {
+                            totalAmount += item.price * item.quantity;
+                        }
+                    }
                 });
-
+                if (orderNote) {
+                    const noteElement = document.createElement('p');
+                    noteElement.innerHTML = `<b>Ghi chú:</b> ${orderNote}`;
+                    orderDetailsContainer.appendChild(noteElement);
+                }
                 const totalElement = document.createElement('p');
                 totalElement.innerHTML = `<b>Tổng tiền:</b> ${totalAmount.toLocaleString()} VND`;
                 orderDetailsContainer.appendChild(totalElement);
+
+
+            } else {
+                orderDetailsContainer.innerHTML = '<p>Không có thông tin đơn hàng.</p>';
             }
         });
 
-        function placeNewOrder() {
+        function ordercomplete() {
             const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
             const orderQuantities = JSON.parse(localStorage.getItem('orderQuantities')) || [];
+            const orderNote = localStorage.getItem('orderNote') || ''; // Get order note from localStorage
             const orderData = {
                 ...orderDetails,
                 items: orderQuantities,
+                note: orderNote, // Add order note to orderData
                 timestamp: new Date().toLocaleString()
             };
 
             console.log('Order Data:', orderData);
 
-            fetch('https://script.google.com/macros/s/AKfycby4vdrjdXQBqz91nVz54P-dtE5swHFg8ZzQ94egldvOWXIHCYv8lj4QDyz8kFbqPl-l/exec', {
+            // Show loading spinner with overlay
+            const loadingOverlay = document.getElementById('loading-overlay');
+            loadingOverlay.style.display = 'flex';
+
+            fetch('https://script.google.com/macros/s/AKfycbxbPbGTgyltMWEjiPWFwwZg-UpK43wcA6uCumeS8majbCzmTo0pP0JDMrMavaAxVKEq/exec', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'text/plain'
@@ -87,22 +122,32 @@
             })
             .then(response => response.json())
             .then(data => {
+                // Hide loading spinner with overlay
+                loadingOverlay.style.display = 'none';
+
                 if (data.status === 'success') {
-                    document.getElementById('order-status-message').textContent = 'Đơn hàng đã đặt thành công!';
-                    document.getElementById('order-status-icon').src = 'https://via.placeholder.com/50/00ff00?text=%E2%9C%94';
-                    document.getElementById('order-status').style.display = 'block';
+                    showPopup();
                 } else {
-                    document.getElementById('order-status-message').textContent = 'Đặt hàng thất bại!';
-                    document.getElementById('order-status-icon').src = 'img/error.png';
-                    document.getElementById('order-status').style.display = 'block';
+                    alert('Đặt hàng thất bại!');
                 }
             })
             .catch(error => {
+                // Hide loading spinner with overlay
+                loadingOverlay.style.display = 'none';
+
                 console.error('Error:', error);
-                document.getElementById('order-status-message').textContent = 'Đặt hàng thất bại!';
-                document.getElementById('order-status-icon').src = 'https://via.placeholder.com/50/ff0000?text=%E2%9C%96';
-                document.getElementById('order-status').style.display = 'block';
+                alert('Đặt hàng thất bại!');
             });
+        }
+
+        function showPopup() {
+            const popup = document.getElementById('success-popup');
+            popup.style.display = 'flex';
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('success-popup');
+            popup.style.display = 'none';
         }
     </script>
 </body>

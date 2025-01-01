@@ -11,9 +11,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@fireworks-js/web": "^2.10.8",
     "body-parser": "^1.20.3",
     "cors-anywhere": "^0.4.4",
     "express": "^4.21.2",
+    "fireworks-js": "^2.10.8",
     "nodemailer": "^6.9.16"
   }
 }

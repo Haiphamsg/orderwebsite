@@ -164,7 +164,7 @@
             const quantities = Array.from(document.querySelectorAll('.menu-item')).map(item => {
                 const name = item.querySelector('h3').textContent;
                 const quantity = parseInt(item.querySelector('.quantity').textContent);
-                const price = parseInt(item.querySelector('.price').getAttribute('data-price'));
+                const price = parseInt(item.getAttribute('data-price'));
                 const image = item.querySelector('img').src;
                 return { name, quantity, price, image };
             });

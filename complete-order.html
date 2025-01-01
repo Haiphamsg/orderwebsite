@@ -9,30 +9,43 @@
 <body>
     <div class="screen" id="complete-order">
         <header>
-            <h1>Complete Order</h1>
+            <h1>Thông tin giao hàng</h1>
         </header>
-        <form id="order-form">
+        <form id="order-form" class="order-form">
             <div class="form-group">
                 <label for="name">Tên của bạn:</label>
-                <input type="text" id="name" name="name" required>
+                <div class="name-input">
+                    <img src="img/person.png" alt="Person">
+                    <input type="text" id="name" name="name" required>
+                </div>
             </div>
+            <hr width="100%" style="margin-bottom:5px" color="#F1F1F1" size="1">
             <div class="form-group">
-                <label for="phone">SĐT:</label>
-                <input type="text" id="phone" name="phone" required>
+                <label for="name">Số điện thoại:</label>
+                <div class="phone-input">
+                    <img src="img/phone.png" alt="phone">
+                    <input type="text" id="phone" name="phone" required>
+                </div>
             </div>
+            <hr width="100%" style="margin-bottom:5px" color="#F1F1F1" size="1">
             <div class="form-group">
                 <label for="address">Địa chỉ:</label>
                 <div class="location-input">
+                    <img src="img/location.png" alt="location">
                     <input type="text" id="address" name="address" required>
-                    <button type="button" id="get-location">Lấy vị trí hiện tại</button>
+                    <button type="button" id="get-location">Lấy từ bản đồ</button>
                 </div>
             </div>
+            <hr width="100%" style="margin-bottom:5px" color="#F1F1F1" size="1">
             <div class="form-group">
                 <label for="payment-method">Chọn hình thức thanh toán:</label>
-                <select id="payment-method" name="payment-method" required autocomplete="off">
-                    <option value="Tiền mặt COD" selected>Tiền mặt COD</option>
-                    <option value="Chuyển khoản">Chuyển khoản NH</option>                    
-                </select>
+                <div class="payment-method">
+                    <img src="img/wallet.png" alt="wallet">
+                    <select id="payment-method" name="payment-method" required autocomplete="off">
+                        <option value="Tiền mặt COD" selected>Tiền mặt COD</option>
+                        <option value="Chuyển khoản">Chuyển khoản NH</option>                    
+                    </select>
+                </div>
             </div>
             <div class="form-group" id="bank-transfer-details" style="display: none;">
                 <label for="qr-code">Mã QR ngân hàng:</label>
@@ -64,11 +77,15 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+            const orderNote = localStorage.getItem('orderNote');
             if (orderDetails) {
                 document.getElementById('name').value = orderDetails.name;
                 document.getElementById('phone').value = orderDetails.phone;
                 document.getElementById('address').value = orderDetails.address;
                 document.getElementById('payment-method').value = orderDetails.paymentMethod;
+            }
+            if (orderNote) {
+                document.getElementById('request').value = orderNote;
             }
         });
 

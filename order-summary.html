@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Summary</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="screen" id="order-summary">
@@ -45,18 +46,26 @@
                                     <span>Số lượng: ${item.quantity}</span>
                                 </div>
                                 <div class="price">
-                                    <span>Đơn giá: ${item.price} VND</span>
+                                    <span>Đơn giá: ${item.price ? item.price.toLocaleString() : 'N/A'} VND</span>
                                 </div>
                             </div>
                         </div>
                     `;
                     orderItemsContainer.appendChild(itemElement);
 
-                    totalAmount += item.price * item.quantity;
+                    if (item.price) {
+                        totalAmount += item.price * item.quantity;
+                    }
                 }
             });
 
             totalAmountElement.textContent = `${totalAmount.toLocaleString()} VND`;
+        });
+
+        document.querySelector('.proceed-btn').addEventListener('click', () => {
+            const note = document.getElementById('request').value;
+            localStorage.setItem('orderNote', note);
+            window.location.href = 'complete-order.html';
         });
     </script>
 </body>
