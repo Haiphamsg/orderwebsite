@@ -209,6 +209,7 @@ header img {
 }
 
 .confirm-button button {
+    width: 100%;
     background-color: #ff6f61;
     color: white;
     border: none;
