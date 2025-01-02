@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee+Spice&display=swap');
+
+
 body {
     font-family: 'Be Vietnam Pro', sans-serif;
     background-color: #f8f8f8;
@@ -6,9 +9,13 @@ body {
 }
 
 .container {
-    width: 90%;
+    width: 100%;
     margin: auto;
     max-width: 400px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
 }
 
 .screen {
@@ -36,10 +43,13 @@ header {
 }
 
 header h1 {
-    font-size: 24px;
-    color: #ff6f61;
+    font-family: 'Bungee Spice';
+    font-size: 30px;
+    color: #c4392d;
+    letter-spacing: 1px;
 }
 .order-confirmation {
+    font-family: 'Be Vietnam Pro';
     text-align: center;
     margin-bottom: 20px;
     color: #ffffff;
@@ -200,12 +210,6 @@ header img {
     margin-top: 10px;
     font-size: 14px;
     color: #333;
-}
-
-.confirm-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
 }
 
 .confirm-button button {
@@ -380,7 +384,9 @@ header img {
     color: #ff6f61;
 }
 
-.proceed-btn, .place-btn, .track-btn {
+.proceed-btn, .place-btn {
+    position: sticky;
+    bottom: 0;
     display: block;
     width: 100%;
     background-color: #ff6f61;
@@ -405,10 +411,7 @@ header img {
     cursor: pointer;
     margin-top: 20px;
     transition: background-color 0.3s ease;
-}
-.order-complete:hover {
     font-weight: bold;
-    background-color: #fff;
 }
 .proceed-btn:hover, .place-btn:hover, .track-btn:hover {
     background-color: #ff4a3d;
@@ -692,3 +695,35 @@ header img {
 #success-popup .popup-content button:hover {
     background: #45a049;
 }
+.confirm-button {
+    bottom: 0;
+    position: sticky;
+    display: block;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 20px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    width: 100%;
+}
+
+.confirm-button:hover {
+    background-color: #ff4a3d;
+}
+
+.total-bill-confirm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.total-text, .total-price {
+    font-weight: bold;
+    font-size: 16px;
+    color: #ffffff;
+}
+

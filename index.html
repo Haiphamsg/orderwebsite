@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Order App</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,6 +13,7 @@
         <!-- Header -->
         <header>
             <!--<img src="img\logo.jpg" alt="logo"> -->
+            <h1>Há Cảo - Bà Bi Lùn</h1>
             <img src="img\herosection.jpg" alt="herosection">
         </header>
 
@@ -41,7 +43,7 @@
                             <span class="stars">⭐ 5.0</span>
                             <span class="fav"><i class="fa-regular fa-thumbs-up"></i></span>
                         </div>
-                        <p>Đơn giá: <span class="price">50,000 VND</span></p>
+                        <p><span class="price">50,000 VND</span></p>
                         <div class="quantity-controls">
                             <button onclick="changeQuantity(this, -1)">-</button>
                             <span class="quantity">0</span>
@@ -57,7 +59,39 @@
                         <div class="rating">
                             <span class="stars">⭐ 4.5</span>
                         </div>
-                        <p>Đơn giá: <span class="price">40,000 VND</span></p>
+                        <p><span class="price">40,000 VND</span></p>
+                        <div class="quantity-controls">
+                            <button onclick="changeQuantity(this, -1)">-</button>
+                            <span class="quantity">0</span>
+                            <button onclick="changeQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" data-name="Hamburger" data-price="40000">
+                    <img src="img/BURHAM_1.webp" alt="Hamburger">
+                    <div class="details">
+                        <h3>Hamburger</h3>
+                        <p>Wendy's Burger</p>
+                        <div class="rating">
+                            <span class="stars">⭐ 4.5</span>
+                        </div>
+                        <p><span class="price">40,000 VND</span></p>
+                        <div class="quantity-controls">
+                            <button onclick="changeQuantity(this, -1)">-</button>
+                            <span class="quantity">0</span>
+                            <button onclick="changeQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" data-name="Hamburger" data-price="40000">
+                    <img src="img/BURHAM_1.webp" alt="Hamburger">
+                    <div class="details">
+                        <h3>Hamburger</h3>
+                        <p>Wendy's Burger</p>
+                        <div class="rating">
+                            <span class="stars">⭐ 4.5</span>
+                        </div>
+                        <p><span class="price">40,000 VND</span></p>
                         <div class="quantity-controls">
                             <button onclick="changeQuantity(this, -1)">-</button>
                             <span class="quantity">0</span>
@@ -70,14 +104,13 @@
         </div>
 
         <!-- Total Bill -->
-        <div id="total-bill">
-            Tổng hóa đơn: <span id="total-price">0 VND</span>
-        </div>
-
-        <!-- Confirm Button -->
-        <div class="confirm-button">
-            <button onclick="redirectToConfirmPage()">Xác nhận</button>
-        </div>
+        
+        <button class="confirm-button" onclick="redirectToConfirmPage()">
+            <div class="total-bill-confirm">
+                <span class="total-text">🛒Giỏ hàng </span>
+                <span class="total-price" id="total-price">0 VND</span>
+            </div>
+        </button>
     </div>
 
     <script>
