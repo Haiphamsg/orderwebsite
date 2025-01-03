@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Bungee+Spice&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins'); */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
 @import url('https://fonts.googleapis.com/css?family=Be+Vietnam+Pro&display=swap');
-
-
 .fa-search {
   position: absolute;
   top: 50%;
@@ -11,11 +9,29 @@
   right: 5px;
   width: 20px;
 }
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
+header h1 {
+    font-family: 'Roboto';
+    font-size: 25px;
+    font-weight: 700; 
+    color: #c4392d;
+    letter-spacing: 1px;
+    -webkit-text-fill-color: #c4392d; /* Add this for better color rendering on iOS */
+}
+.order-confirmation {
+    font-family: 'Be Vietnam Pro';
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
 
 
 body {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: 'Be Vietnam Pro', cursive;
     background-color: #f8f8f8;
     margin: 0;
     padding: 0;
@@ -51,24 +67,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
 }
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
 
-header h1 {
-    font-family: 'Bungee Spice';
-    font-size: 25px;
-    color: #c4392d;
-    letter-spacing: 1px;
-    -webkit-text-fill-color: #c4392d; /* Add this for better color rendering on iOS */
-}
-.order-confirmation {
-    font-family: 'Be Vietnam Pro';
-    text-align: center;
-    margin-bottom: 20px;
-    color: #ffffff;
-}
 header img {
     padding-top: 10px;
     width: 100%;
