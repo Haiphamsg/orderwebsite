@@ -19,6 +19,7 @@ body {
     background-color: #f8f8f8;
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased; /* Add this for better font rendering on iOS */
 }
 
 .container {
@@ -60,6 +61,7 @@ header h1 {
     font-size: 25px;
     color: #c4392d;
     letter-spacing: 1px;
+    -webkit-text-fill-color: #c4392d; /* Add this for better color rendering on iOS */
 }
 .order-confirmation {
     font-family: 'Be Vietnam Pro';
@@ -162,6 +164,7 @@ header img {
     display: flex;
     align-items: center;
     margin-top: 10px;
+    -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add this for better shadow rendering on iOS */
 }
 
 .menu-item img {
