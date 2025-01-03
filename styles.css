@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee+Spice&display=swap');
-@import url("https://fonts.googleapis.com/css2?family-Poppins");
+@import url('https://fonts.googleapis.com/css2?family-Poppins');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+
 
 .fa-search {
   position: absolute;
@@ -436,10 +438,12 @@ header img {
 .payment-method {
     display: flex;
     align-items: center;
+    padding-left: 5px;
+    gap: 10px;
 }
 .payment-method img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 .order-details {
     border-radius: 16px;
@@ -518,14 +522,13 @@ header img {
 }
 
 .form-group label {
+    margin-top: 10px;
     display: block;
     font-size: 16px;
     color: #333;
-    margin-bottom: 5px;
 }
 
-.form-group input,
-.form-group select {
+.form-group input, .form-group select {
     width: -webkit-fill-available; 
     padding: 10px;
     border: 0px solid #ddd;
@@ -580,7 +583,43 @@ header img {
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    padding-left: 5px;
 }
+.location-container {
+    display: flex;
+
+    position: relative;
+    width: 100%;
+}
+/* Input */
+#address {
+    width: -webkit-fill-available;
+    padding: 8px 50px 8px 12px; /* Tạo khoảng trống cho button */
+    /* border: 1px solid #ccc; */
+    /* border-radius: 4px; */
+    font-size: 14px;
+    outline: none;
+}
+
+#get-location {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+    border: none;
+    background-color: #ff4a3d;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#get-location:hover {
+    background-color: #a33030;
+}
+
 .location-input img {
     width: 20px;
     height: 20px;
@@ -736,4 +775,16 @@ header img {
     font-weight: bold;
     font-size: 16px;
     color: #ffffff;
+}
+#qr-code    {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+}
+bank-transfer-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-self: center;
 }
