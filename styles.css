@@ -436,10 +436,12 @@ header img {
 .payment-method {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding-left:5px;
 }
 .payment-method img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 .order-details {
     border-radius: 16px;
@@ -580,6 +582,8 @@ header img {
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    justify-content: space-between;
+    padding-left:5px;
 }
 .location-input img {
     width: 20px;
