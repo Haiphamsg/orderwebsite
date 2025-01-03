@@ -36,9 +36,9 @@
         <div class="menu">
             <div id="menu-items">
                 <div class="menu-item" data-name="Cheeseburger" data-price="50000">
-                    <img src="img/BURHAM_1.webp" alt="Cheeseburger">
+                    <img src="img/BURHAM_1.webp" alt="Cheeseburger" onclick="toggleDetails(this)">
                     <div class="details">
-                        <h3>Cheeseburger</h3>
+                        <h3 onclick="toggleDetails(this)">Cheeseburger</h3>
                         <p>Wendy's Burger</p>
                         <div class="rating">
                             <span class="stars">⭐ 5.0</span>
@@ -50,12 +50,15 @@
                             <span class="quantity">0</span>
                             <button onclick="changeQuantity(this, 1)">+</button>
                         </div>
+                        <div class="product-details" style="display: none;">
+                            <p>Additional details about the Cheeseburger...</p>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item" data-name="Hamburger" data-price="40000">
-                    <img src="img/BURHAM_1.webp" alt="Hamburger">
+                    <img src="img/BURHAM_1.webp" alt="Hamburger" onclick="toggleDetails(this)">
                     <div class="details">
-                        <h3>Hamburger</h3>
+                        <h3 onclick="toggleDetails(this)">Hamburger</h3>
                         <p>Wendy's Burger</p>
                         <div class="rating">
                             <span class="stars">⭐ 4.5</span>
@@ -66,12 +69,15 @@
                             <span class="quantity">0</span>
                             <button onclick="changeQuantity(this, 1)">+</button>
                         </div>
+                        <div class="product-details" style="display: none;">
+                            <p>Additional details about the Hamburger...</p>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item" data-name="Hamburger" data-price="40000">
-                    <img src="img/BURHAM_1.webp" alt="Hamburger">
+                    <img src="img/BURHAM_1.webp" alt="Hamburger" onclick="toggleDetails(this)">
                     <div class="details">
-                        <h3>Hamburger</h3>
+                        <h3 onclick="toggleDetails(this)">Hamburger</h3>
                         <p>Wendy's Burger</p>
                         <div class="rating">
                             <span class="stars">⭐ 4.5</span>
@@ -82,12 +88,15 @@
                             <span class="quantity">0</span>
                             <button onclick="changeQuantity(this, 1)">+</button>
                         </div>
+                        <div class="product-details" style="display: none;">
+                            <p>Additional details about the Hamburger...</p>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item" data-name="Hamburger" data-price="40000">
-                    <img src="img/BURHAM_1.webp" alt="Hamburger">
+                    <img src="img/BURHAM_1.webp" alt="Hamburger" onclick="toggleDetails(this)">
                     <div class="details">
-                        <h3>Hamburger</h3>
+                        <h3 onclick="toggleDetails(this)">Hamburger</h3>
                         <p>Wendy's Burger</p>
                         <div class="rating">
                             <span class="stars">⭐ 4.5</span>
@@ -97,6 +106,9 @@
                             <button onclick="changeQuantity(this, -1)">-</button>
                             <span class="quantity">0</span>
                             <button onclick="changeQuantity(this, 1)">+</button>
+                        </div>
+                        <div class="product-details" style="display: none;">
+                            <p>Additional details about the Hamburger...</p>
                         </div>
                     </div>
                 </div>
@@ -206,6 +218,24 @@
             });
             localStorage.setItem('orderQuantities', JSON.stringify(quantities));
             window.location.href = 'order-summary.html';
+        }
+
+        function toggleDetails(element) {
+            const menuItem = element.closest('.menu-item');
+            const details = menuItem.querySelector('.product-details');
+            const allDetails = document.querySelectorAll('.product-details');
+
+            allDetails.forEach(detail => {
+                if (detail !== details) {
+                    detail.style.display = 'none';
+                }
+            });
+
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
         }
     </script>
 </body>
