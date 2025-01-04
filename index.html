@@ -149,7 +149,60 @@
             }
 
             function redirectToConfirmPage() {
-                // Logic để chuyển hướng đến trang xác nhận đơn hàng
+            const quantities = Array.from(document.querySelectorAll('.menu-item')).map(item => {
+                const name = item.querySelector('h3').textContent;
+                const quantity = parseInt(item.querySelector('.quantity').textContent);
+                const price = parseInt(item.getAttribute('data-price'));
+                const image = item.querySelector('img').src;
+                return { name, quantity, price, image };
+            });
+            localStorage.setItem('orderQuantities', JSON.stringify(quantities));
+            window.location.href = 'order-summary.html';
+            }
+
+
+            // Hàm để hiển thị gợi ý tìm kiếm
+            function showSuggestions() {
+                const input = document.getElementById('search-input').value.toLowerCase();
+                const suggestionsContainer = document.getElementById('suggestions-container');
+                suggestionsContainer.innerHTML = '';
+
+                if (input.length === 0) {
+                    return;
+                }
+
+                const menuItems = document.querySelectorAll('.menu-item');
+                menuItems.forEach(item => {
+                    const name = item.dataset.name.toLowerCase();
+                    if (name.includes(input)) {
+                        const suggestion = document.createElement('div');
+                        suggestion.classList.add('suggestion');
+                        suggestion.textContent = item.dataset.name;
+                        suggestion.onclick = () => {
+                            document.getElementById('search-input').value = item.dataset.name;
+                            suggestionsContainer.innerHTML = '';
+                        };
+                        suggestionsContainer.appendChild(suggestion);
+                    }
+                });
+            }
+
+            // Hàm để xử lý sự kiện khi người dùng nhấn phím Enter
+            function handleKeyDown(event) {
+                if (event.key === 'Enter') {
+                    const input = document.getElementById('search-input').value.toLowerCase();
+                    const menuItems = document.querySelectorAll('.menu-item');
+                    menuItems.forEach(item => {
+                        const name = item.dataset.name.toLowerCase();
+                        if (name.includes(input)) {
+                            item.scrollIntoView();
+                            item.querySelector('.details').style.backgroundColor = '#ffff99'; // Highlight the item
+                            setTimeout(() => {
+                                item.querySelector('.details').style.backgroundColor = ''; // Remove highlight after a short delay
+                            }, 2000);
+                        }
+                    });
+                }
             }
         </script>
     </div>
