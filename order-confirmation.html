@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmation</title>
+    <title>Há Cảo - Bà Bi Lùn</title>
+    <!-- Xác nhận đơn hàng-->
     <link rel="stylesheet" href="styles.css">
     
 </head>
@@ -16,10 +17,6 @@
             <!-- Order details will be dynamically added here -->
         </div>
         <button class="order-complete" onclick="ordercomplete()">Hoàn tất đơn hàng</button>
-        <!-- <div id="order-status" style="display: none;">
-            <p id="order-status-message"></p>
-            <img id="order-status-icon" src="" alt="" style="width: 50px; height: 50px;">
-        </div> -->
         <section class="call-buton"><a class="cc-calto-action-ripple" href="tel:0938550881"><i class="fa fa-phone"></i><span class="num">0938.550.881</span></a>
         </section>
     </div>
@@ -47,12 +44,13 @@
             if (orderDetails) {
                 orderDetailsContainer.innerHTML = `
                     <h3>Chi tiết đơn hàng</h3>
-                    <hr size = "1px" width = "100%" color = "#9B9B9B">
-                    <p>Người đặt:<b> ${orderDetails.name}</b></p>
-                    <p>Địa chỉ giao hàng:<b> ${orderDetails.address}</b></p>
+                    <hr size="1px" width="100%" color="#9B9B9B">
+                    <p>Người đặt: <b>${orderDetails.name}</b></p>
+                    <p>Địa chỉ giao hàng: <b>${orderDetails.address}</b></p>
                     <p>SĐT: <b>${orderDetails.phone}</b></p>
-                    <p>Hình thức thanh toán:<b> ${orderDetails.paymentMethod}</b></p>
+                    <p>Hình thức thanh toán: <strong>${orderDetails.paymentMethod}</strong></p>
                     <h3>Món bạn chọn</h3>
+                    <hr size="1px" width="100%" color="#9B9B9B">
                 `;
 
                 let totalAmount = 0;
@@ -79,11 +77,11 @@
                 });
                 if (orderNote) {
                     const noteElement = document.createElement('p');
-                    noteElement.innerHTML = `<b>Ghi chú:</b> ${orderNote}`;
+                    noteElement.innerHTML = `Ghi chú: <b>${orderNote}</b>`;
                     orderDetailsContainer.appendChild(noteElement);
                 }
                 const totalElement = document.createElement('p');
-                totalElement.innerHTML = `<b>Tổng tiền:</b> ${totalAmount.toLocaleString()} VND`;
+                totalElement.innerHTML = `Tổng tiền: <b>${totalAmount.toLocaleString()} VND</b>`;
                 orderDetailsContainer.appendChild(totalElement);
 
 

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Order App</title>
+    <title>Há Cảo - Bà Bi Lùn</title>
+    <!-- Trang Chủ -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,95 +24,11 @@
         </div>
 
         <!-- Categories -->
-        <!-- <div class="categories">
-            <button class="active">All</button>
-            <button>Combos</button>
-            <button>Sliders</button>
-            <button>Classics</button>
-        </div> -->
+        <div class="categories" id="categories"></div>
 
         <!-- Menu -->
         <div class="menu">
-            <div id="menu-items">
-                <div class="menu-item" data-name="Cheeseburger" data-price="50000">
-                    <img src="img/BURHAM_1.webp" alt="Cheeseburger" onclick="toggleDetails(this)">
-                    <div class="details">
-                        <h3 onclick="toggleDetails(this)">Cheeseburger</h3>
-                        <p>Wendy's Burger</p>
-                        <div class="rating">
-                            <span class="stars">⭐ 5.0</span>
-                            <span class="fav"><i class="fa-regular fa-thumbs-up"></i></span>
-                        </div>
-                        <p><span class="price">50,000 VND</span></p>
-                        <div class="quantity-controls">
-                            <button onclick="changeQuantity(this, -1)">-</button>
-                            <span class="quantity">0</span>
-                            <button onclick="changeQuantity(this, 1)">+</button>
-                        </div>
-                        <div class="product-details" style="display: none;">
-                            <p>Additional details about the Cheeseburger...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-name="Hamburger" data-price="40000">
-                    <img src="img/BURHAM_1.webp" alt="Hamburger" onclick="toggleDetails(this)">
-                    <div class="details">
-                        <h3 onclick="toggleDetails(this)">Hamburger</h3>
-                        <p>Wendy's Burger</p>
-                        <div class="rating">
-                            <span class="stars">⭐ 4.5</span>
-                        </div>
-                        <p><span class="price">40,000 VND</span></p>
-                        <div class="quantity-controls">
-                            <button onclick="changeQuantity(this, -1)">-</button>
-                            <span class="quantity">0</span>
-                            <button onclick="changeQuantity(this, 1)">+</button>
-                        </div>
-                        <div class="product-details" style="display: none;">
-                            <p>Additional details about the Hamburger...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-name="Hamburger" data-price="40000">
-                    <img src="img/BURHAM_1.webp" alt="Hamburger" onclick="toggleDetails(this)">
-                    <div class="details">
-                        <h3 onclick="toggleDetails(this)">Hamburger</h3>
-                        <p>Wendy's Burger</p>
-                        <div class="rating">
-                            <span class="stars">⭐ 4.5</span>
-                        </div>
-                        <p><span class="price">40,000 VND</span></p>
-                        <div class="quantity-controls">
-                            <button onclick="changeQuantity(this, -1)">-</button>
-                            <span class="quantity">0</span>
-                            <button onclick="changeQuantity(this, 1)">+</button>
-                        </div>
-                        <div class="product-details" style="display: none;">
-                            <p>Additional details about the Hamburger...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-name="Hamburger" data-price="40000">
-                    <img src="img/BURHAM_1.webp" alt="Hamburger" onclick="toggleDetails(this)">
-                    <div class="details">
-                        <h3 onclick="toggleDetails(this)">Hamburger</h3>
-                        <p>Wendy's Burger</p>
-                        <div class="rating">
-                            <span class="stars">⭐ 4.5</span>
-                        </div>
-                        <p><span class="price">40,000 VND</span></p>
-                        <div class="quantity-controls">
-                            <button onclick="changeQuantity(this, -1)">-</button>
-                            <span class="quantity">0</span>
-                            <button onclick="changeQuantity(this, 1)">+</button>
-                        </div>
-                        <div class="product-details" style="display: none;">
-                            <p>Additional details about the Hamburger...</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add more menu items as needed -->
-            </div>
+            <div id="menu-items"></div>
         </div>
 
         <!-- Total Bill -->
@@ -122,7 +39,7 @@
                 <span class="total-price" id="total-price">0 VND</span>
             </div>
         </button>
-        <section class="call-buton"><a class="cc-calto-action-ripple" href="tel:0938550881"><i class="fa fa-phone"></i><span class="num">0938.550.881</span></a>
+        <section class="call-buton"><a class="cc-calto-action-ripple" href="https://zalo.me/0938550881"><i class="fa fa-phone"></i><span class="num">0938.550.881</span></a>
         </section>
     </div>
 
@@ -235,6 +152,68 @@
                 details.style.display = 'none';
             }
         }
+
+        // Hàm để tải dữ liệu từ tệp JSON
+        async function loadProducts() {
+            const response = await fetch('products.json');
+            const data = await response.json();
+            return data.categories;
+        }
+
+        // Hàm để tạo phần tử HTML cho mỗi sản phẩm
+        function createProductElement(product) {
+            const productElement = document.createElement('div');
+            productElement.classList.add('menu-item');
+            productElement.dataset.name = product.name;
+            productElement.dataset.price = product.price.discounted;
+
+            productElement.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" onclick="toggleDetails(this)">
+                <div class="details">
+                    <h3 onclick="toggleDetails(this)">${product.name}</h3>
+                    <p>${product.description || ''}</p>
+                    <div class="rating">
+                        <span class="stars">⭐ ${product.rating || ''}</span>
+                    </div>
+                    <p><span class="price">${product.price.discounted.toLocaleString()} VND</span></p>
+                    <div class="quantity-controls">
+                        <button onclick="changeQuantity(this, -1)">-</button>
+                        <span class="quantity">0</span>
+                        <button onclick="changeQuantity(this, 1)">+</button>
+                    </div>
+                    <div class="product-details" style="display: none;">
+                        <p>Additional details about the ${product.name}...</p>
+                    </div>
+                </div>
+            `;
+
+            return productElement;
+        }
+
+        // Hàm để tạo phần tử HTML cho mỗi danh mục
+        function createCategoryElement(category) {
+            const categoryElement = document.createElement('div');
+            categoryElement.classList.add('category');
+            categoryElement.innerHTML = `<h2>${category.name}</h2>`;
+            category.items.forEach(item => {
+                const productElement = createProductElement(item);
+                categoryElement.appendChild(productElement);
+            });
+            return categoryElement;
+        }
+
+        // Hàm để hiển thị các danh mục và sản phẩm
+        async function displayProducts() {
+            const categories = await loadProducts();
+            const categoriesContainer = document.getElementById('categories');
+            categories.forEach(category => {
+                const categoryElement = createCategoryElement(category);
+                categoriesContainer.appendChild(categoryElement);
+            });
+        }
+
+        // Gọi hàm để hiển thị sản phẩm khi trang được tải
+        window.onload = displayProducts;
     </script>
 </body>
 </html>
