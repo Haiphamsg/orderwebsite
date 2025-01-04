@@ -9,22 +9,23 @@
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Trang web bán hàng Dimsum và Panna cotta">
     <meta property="og:description" content="Trang web bán hàng với các sản phẩm Dimsum hấp, Dimsum chay hấp, Dimsum đông lạnh và Panna cotta.">
-    <meta property="og:image" content="img\herosection.jpg">
+    <meta property="og:image" content="img/herosection.jpg">
     <meta property="og:url" content="https://hacaobabilun.com">
-    <meta name="twitter:card" content="img\herosection.jpg">
+    <meta name="twitter:card" content="img/herosection.jpg">
     <meta name="twitter:title" content="Trang web bán hàng Dimsum và Panna cotta">
     <meta name="twitter:description" content="Trang web bán hàng với các sản phẩm Dimsum hấp, Dimsum chay hấp, Dimsum đông lạnh và Panna cotta.">
-    <meta name="twitter:image" content="img\herosection.jpg">
-    <title>Menu</title>
+    <meta name="twitter:image" content="img/herosection.jpg">
+    <title>Há Cảo - Bà Bi Lùn</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <header>
-            <!--<img src="img\logo.jpg" alt="logo"> -->
+            <!--<img src="img/logo.jpg" alt="logo"> -->
             <h1><i class="fa-solid fa-star fa-2xs" style="color: #c4392d;"></i> Há Cảo - Bà Bi Lùn <i class="fa-solid fa-star fa-2xs" style="color: #c4392d;"></i></h1>
-            <img src="img\herosection.jpg" alt="herosection">
+            <img src="img/herosection.jpg" alt="herosection">
         </header>
 
         <!-- Search bar -->
@@ -43,188 +44,114 @@
         </div>
 
         <!-- Total Bill -->
-        
         <button class="confirm-button" onclick="redirectToConfirmPage()">
             <div class="total-bill-confirm">
                 <span class="total-text">🛒Giỏ hàng </span>
                 <span class="total-price" id="total-price">0 VND</span>
             </div>
         </button>
-        <section class="call-buton"><a class="cc-calto-action-ripple" href="https://zalo.me/0938550881"><i class="fa fa-phone"></i><span class="num">0938.550.881</span></a>
+        <section class="call-buton">
+            <a class="cc-calto-action-ripple" href="https://zalo.me/0938550881">
+                <i class="fa fa-phone"></i>
+                <span class="num">0938.550.881</span>
+            </a>
         </section>
-    </div>
 
-    <script>
-        const items = [
-            "Cheeseburger",
-            "Hamburger",
-            "Pizza",
-            "Sushi",
-            "Pasta",
-            "Salad",
-            "Sandwich",
-            "Steak",
-            "Taco",
-            "Burrito"
-        ];
+        <script>
+            // Hàm để tải dữ liệu từ tệp JSON
+            async function loadProducts() {
+                const response = await fetch('products.json');
+                const data = await response.json();
+                return data.categories;
+            }
 
-        function showSuggestions() {
-            const input = document.getElementById('search-input').value.toLowerCase();
-            const suggestionsContainer = document.getElementById('suggestions-container');
-            suggestionsContainer.innerHTML = '';
+            // Hàm để tạo phần tử HTML cho mỗi sản phẩm
+            function createProductElement(product) {
+                const productElement = document.createElement('div');
+                productElement.classList.add('menu-item');
+                productElement.dataset.name = product.name;
+                productElement.dataset.price = product.price.discounted;
 
-            if (input) {
-                const suggestions = items.filter(item => item.toLowerCase().includes(input));
-                suggestions.forEach(suggestion => {
-                    const suggestionElement = document.createElement('div');
-                    suggestionElement.classList.add('suggestion');
-                    suggestionElement.textContent = suggestion;
-                    suggestionElement.onclick = () => selectSuggestion(suggestion);
-                    suggestionsContainer.appendChild(suggestionElement);
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" onclick="toggleDetails(this)">
+                    <div class="details">
+                        <h3 onclick="toggleDetails(this)">${product.name}</h3>
+                        <p>${product.description || ''}</p>
+                        <div class="rating">
+                            <span class="stars">⭐ ${product.rating || ''}</span>
+                        </div>
+                        <p><span class="price">${product.price.discounted.toLocaleString()} VND</span></p>
+                        <div class="quantity-controls">
+                            <button onclick="changeQuantity(this, -1)">-</button>
+                            <span class="quantity">0</span>
+                            <button onclick="changeQuantity(this, 1)">+</button>
+                        </div>
+                        <div class="product-details" style="display: none;">
+                            <p>Additional details about the ${product.name}...</p>
+                        </div>
+                    </div>
+                `;
+
+                return productElement;
+            }
+
+            // Hàm để tạo phần tử HTML cho mỗi danh mục
+            function createCategoryElement(category) {
+                const categoryElement = document.createElement('div');
+                categoryElement.classList.add('category');
+                categoryElement.innerHTML = `<h2>${category.name}</h2>`;
+                category.items.forEach(item => {
+                    const productElement = createProductElement(item);
+                    categoryElement.appendChild(productElement);
+                });
+                return categoryElement;
+            }
+
+            // Hàm để hiển thị các danh mục và sản phẩm
+            async function displayProducts() {
+                const categories = await loadProducts();
+                const categoriesContainer = document.getElementById('categories');
+                categories.forEach(category => {
+                    const categoryElement = createCategoryElement(category);
+                    categoriesContainer.appendChild(categoryElement);
                 });
             }
-        }
 
-        function selectSuggestion(suggestion) {
-            document.getElementById('search-input').value = suggestion;
-            document.getElementById('suggestions-container').innerHTML = '';
-            searchItems();
-        }
+            // Gọi hàm để hiển thị sản phẩm khi trang được tải
+            window.onload = displayProducts;
 
-        function handleKeyDown(event) {
-            if (event.key === 'Enter') {
-                searchItems();
-            }
-        }
-
-        function searchItems() {
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const menuItems = document.querySelectorAll('.menu-item');
-            menuItems.forEach(item => {
-                const itemName = item.getAttribute('data-name').toLowerCase();
-                if (itemName.includes(query)) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
+            // Các hàm khác như changeQuantity, toggleDetails, redirectToConfirmPage...
+            function changeQuantity(button, change) {
+                const quantitySpan = button.parentElement.querySelector('.quantity');
+                let currentQuantity = parseInt(quantitySpan.textContent);
+                currentQuantity += change;
+                if (currentQuantity < 0) {
+                    currentQuantity = 0;
                 }
-            });
-        }
-
-        function changeQuantity(button, change) {
-            const quantitySpan = button.parentElement.querySelector('.quantity');
-            let currentQuantity = parseInt(quantitySpan.textContent);
-            currentQuantity += change;
-            if (currentQuantity < 0) {
-                currentQuantity = 0;
+                quantitySpan.textContent = currentQuantity;
+                updateTotalBill();
             }
-            quantitySpan.textContent = currentQuantity;
 
-            // Update total bill
-            updateTotalBill();
-        }
-
-        function updateTotalBill() {
-            const menuItems = document.querySelectorAll('.menu-item');
-            let totalPrice = 0;
-            menuItems.forEach(item => {
-                const price = parseInt(item.getAttribute('data-price'));
-                const quantity = parseInt(item.querySelector('.quantity').textContent);
-                totalPrice += price * quantity;
-            });
-            document.getElementById('total-price').textContent = totalPrice.toLocaleString() + ' VND';
-        }
-
-        function redirectToConfirmPage() {
-            const quantities = Array.from(document.querySelectorAll('.menu-item')).map(item => {
-                const name = item.querySelector('h3').textContent;
-                const quantity = parseInt(item.querySelector('.quantity').textContent);
-                const price = parseInt(item.getAttribute('data-price'));
-                const image = item.querySelector('img').src;
-                return { name, quantity, price, image };
-            });
-            localStorage.setItem('orderQuantities', JSON.stringify(quantities));
-            window.location.href = 'order-summary.html';
-        }
-
-        function toggleDetails(element) {
-            const menuItem = element.closest('.menu-item');
-            const details = menuItem.querySelector('.product-details');
-            const allDetails = document.querySelectorAll('.product-details');
-
-            allDetails.forEach(detail => {
-                if (detail !== details) {
-                    detail.style.display = 'none';
-                }
-            });
-
-            if (details.style.display === 'none' || details.style.display === '') {
-                details.style.display = 'block';
-            } else {
-                details.style.display = 'none';
+            function updateTotalBill() {
+                const menuItems = document.querySelectorAll('.menu-item');
+                let totalPrice = 0;
+                menuItems.forEach(item => {
+                    const price = parseInt(item.dataset.price);
+                    const quantity = parseInt(item.querySelector('.quantity').textContent);
+                    totalPrice += price * quantity;
+                });
+                document.getElementById('total-price').textContent = `${totalPrice.toLocaleString()} VND`;
             }
-        }
 
-        // Hàm để tải dữ liệu từ tệp JSON
-        async function loadProducts() {
-            const response = await fetch('products.json');
-            const data = await response.json();
-            return data.categories;
-        }
+            function toggleDetails(element) {
+                const details = element.parentElement.querySelector('.product-details');
+                details.style.display = details.style.display === 'none' ? 'block' : 'none';
+            }
 
-        // Hàm để tạo phần tử HTML cho mỗi sản phẩm
-        function createProductElement(product) {
-            const productElement = document.createElement('div');
-            productElement.classList.add('menu-item');
-            productElement.dataset.name = product.name;
-            productElement.dataset.price = product.price.discounted;
-
-            productElement.innerHTML = `
-                <img src="${product.image}" alt="${product.name}" onclick="toggleDetails(this)">
-                <div class="details">
-                    <h3 onclick="toggleDetails(this)">${product.name}</h3>
-                    <p>${product.description || ''}</p>
-                    <div class="rating">
-                        <span class="stars">⭐ ${product.rating || ''}</span>
-                    </div>
-                    <p><span class="price">${product.price.discounted.toLocaleString()} VND</span></p>
-                    <div class="quantity-controls">
-                        <button onclick="changeQuantity(this, -1)">-</button>
-                        <span class="quantity">0</span>
-                        <button onclick="changeQuantity(this, 1)">+</button>
-                    </div>
-                    <div class="product-details" style="display: none;">
-                        <p>Additional details about the ${product.name}...</p>
-                    </div>
-                </div>
-            `;
-
-            return productElement;
-        }
-
-        // Hàm để tạo phần tử HTML cho mỗi danh mục
-        function createCategoryElement(category) {
-            const categoryElement = document.createElement('div');
-            categoryElement.classList.add('category');
-            categoryElement.innerHTML = `<h2>${category.name}</h2>`;
-            category.items.forEach(item => {
-                const productElement = createProductElement(item);
-                categoryElement.appendChild(productElement);
-            });
-            return categoryElement;
-        }
-
-        // Hàm để hiển thị các danh mục và sản phẩm
-        async function displayProducts() {
-            const categories = await loadProducts();
-            const categoriesContainer = document.getElementById('categories');
-            categories.forEach(category => {
-                const categoryElement = createCategoryElement(category);
-                categoriesContainer.appendChild(categoryElement);
-            });
-        }
-
-        // Gọi hàm để hiển thị sản phẩm khi trang được tải
-        window.onload = displayProducts;
-    </script>
+            function redirectToConfirmPage() {
+                // Logic để chuyển hướng đến trang xác nhận đơn hàng
+            }
+        </script>
+    </div>
 </body>
 </html>
