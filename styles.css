@@ -1,46 +1,46 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins'); */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
-@import url('https://fonts.googleapis.com/css?family=Be+Vietnam+Pro&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css);
+@import url(https://fonts.googleapis.com/css?family=Be+Vietnam+Pro&display=swap);
 
 *,
-*::before,
-*::after {
-    box-sizing: border-box;
+::after,
+::before {
+    box-sizing: border-box
 }
 
 .fa-search {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 5px;
-  width: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+    width: 20px
 }
+
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 header h1 {
-    font-family: 'Roboto';
+    font-family: Roboto;
     font-size: 25px;
-    font-weight: 700; 
+    font-weight: 700;
     color: #c4392d;
-    letter-spacing: 1px;
+    letter-spacing: 1px
 }
+
 .order-confirmation {
-    font-family: 'Roboto';
+    font-family: Roboto;
     text-align: center;
     margin-bottom: 20px;
-    color: #ffffff;
+    color: #fff
 }
 
-
 body {
-    font-family: 'Roboto', cursive;
+    font-family: Roboto, cursive;
     background-color: #f8f8f8;
     margin: 0;
-    padding: 0;
+    padding: 0
 }
 
 .container {
@@ -48,29 +48,29 @@ body {
     margin: auto;
     max-width: 400px;
     padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1)
 }
 
 .screen {
     width: 90%;
     margin: auto;
     max-width: 400px;
-    background: white;
+    background: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1)
 }
+
 .screen-end {
     width: 90%;
     margin: auto;
     max-width: 400px;
-    background: #F07423;
+    background: #f07423;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    margin-top: 20px
 }
 
 header img {
@@ -78,9 +78,9 @@ header img {
     width: 100%;
     height: 100%;
     border-radius: 10%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 4px solid transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+    transition: transform .3s ease, box-shadow .3s ease;
+    border: 4px solid transparent
 }
 
 .search-bar {
@@ -90,7 +90,7 @@ header img {
     position: relative;
     width: 100%;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 0 auto
 }
 
 .search-bar input {
@@ -98,22 +98,22 @@ header img {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 25px;
-    outline: none;
+    outline: 0
 }
 
 .search-bar button {
     margin-left: 10px;
     background-color: #ff6f61;
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 50%;
     padding: 10px;
-    cursor: pointer;
+    cursor: pointer
 }
 
 #suggestions-container {
     position: absolute;
-    background: white;
+    background: #fff;
     border: 1px #ccc;
     width: 100%;
     max-height: 200px;
@@ -122,169 +122,166 @@ header img {
     top: 100%;
     left: 0;
     right: 0;
-    border-top: none;
+    border-top: none
 }
 
 .suggestion {
     padding: 10px;
     cursor: pointer;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc
 }
 
 .suggestion:hover {
-    background: #f0f0f0;
+    background: #f0f0f0
 }
 
 .categories {
     display: block;
     gap: 10px;
     margin: 20px 0;
-    overflow-x: auto;
+    overflow-x: auto
 }
 
 .categories button {
     border: none;
     background-color: #f1f1f1;
     border-radius: 20px;
-    /* padding: 8px 15px; */
-    cursor: pointer;
+    cursor: pointer
 }
 
 .categories button.active {
     background-color: #ff6f61;
-    color: white;
+    color: #fff
 }
 
 .menu {
     display: block;
-    margin: 10px 0;
+    margin: 10px 0
 }
 
 .menu-item {
-    background-color: white;
+    background-color: #fff;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 .menu-item img {
     border-radius: 10px;
     width: 100px;
     height: 100px;
-    object-fit: fill;
+    object-fit: fill
 }
 
 .menu-item .details {
     padding: 10px;
-    text-align: left;
+    text-align: left
 }
 
 .menu-item .details h3 {
     font-size: 16px;
     color: #333;
-    margin: 5px 0;
+    margin: 5px 0
 }
 
 .menu-item .details p {
     font-size: 14px;
     color: #777;
-    margin: 5px 0;
+    margin: 5px 0
 }
 
 .menu-item .details .rating {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 .menu-item .details .rating .stars {
     font-size: 14px;
-    color: #f39c12;
+    color: #f39c12
 }
 
 .menu-item .details .quantity-controls {
     display: flex;
     justify-content: left;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 .menu-item .details .quantity-controls button {
     background-color: #ff6f61;
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 50%;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .menu-item .details .quantity-controls .quantity {
     margin: 0 10px;
-    font-size: 14px;
+    font-size: 14px
 }
 
 .menu-item .details .price {
     margin-top: 10px;
     font-size: 14px;
     color: #333;
-    font-weight: bold;
+    font-weight: 700
 }
 
 .confirm-button button {
     width: 100%;
     background-color: #ff6f61;
-    color: white;
+    color: #fff;
     border: none;
     padding: 10px 30px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color .3s ease
 }
 
 .confirm-button button:hover {
-    background-color: #ff4a3d;
+    background-color: #ff4a3d
 }
 
 .order-items {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    /* margin-bottom: 5px; */
+    gap: 5px
 }
 
 .order-item {
     display: flex;
     align-items: center;
-    /* margin-bottom: 5px; */
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ddd
 }
 
 .order-item img {
     width: 50px;
     height: 50px;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-right: 10px
 }
 
 .item-details {
-    flex: 1;
+    flex: 1
 }
 
 .item-details h3 {
     font-size: 16px;
     color: #333;
-    margin: 0;
+    margin: 0
 }
 
 .item-details p {
     font-size: 14px;
     color: #777;
-    margin: 5px 0;
+    margin: 5px 0
 }
 
 .item {
@@ -294,84 +291,83 @@ header img {
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* margin-bottom: 10px; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1)
 }
 
 .item img {
     width: 100px;
     height: 100px;
     border-radius: 10px;
-    object-fit: cover;
+    object-fit: cover
 }
 
 .item-info {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    align-items: center;
+    align-items: center
 }
 
 .item-info .details {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 5px
 }
 
 .item-info .details h3 {
     margin: 0;
     font-size: 18px;
-    color: #333;
+    color: #333
 }
 
 .item-info .details .quantity {
     font-size: 14px;
-    color: #777;
+    color: #777
 }
 
 .item-info .details .price {
     font-size: 14px;
     color: #ed0928;
-    font-weight: bold;
+    font-weight: 700
 }
 
 .item-info h4 {
     margin: 0;
     font-size: 16px;
-    color: #333;
+    color: #333
 }
 
-.item-info p {  
+.item-info p {
     margin: 0;
     font-size: 14px;
-    color: #777;
+    color: #777
 }
 
 .special-request {
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: #fff;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1) ;
-    padding: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    padding: 10px
 }
 
 .special-request label {
     display: block;
     font-size: 16px;
     color: #333;
-    margin-bottom: 5px;
+    margin-bottom: 5px
 }
 
 .special-request textarea {
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 14px
 }
 
 .special-request textarea {
     width: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
 .promo {
@@ -380,13 +376,13 @@ header img {
     padding: 10px;
     border-radius: 5px;
     color: #28a745;
-    font-size: 14px;
+    font-size: 14px
 }
 
 .promo p {
     margin: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
 .total {
@@ -394,116 +390,136 @@ header img {
     font-size: 16px;
     color: #333;
     text-align: right;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .total p {
-    margin: 0;
+    margin: 0
 }
 
 .total b {
-    color: #ff6f61;
+    color: #ff6f61
 }
 
-.proceed-btn, .place-btn {
+.place-btn,
+.proceed-btn {
     position: sticky;
     bottom: 0;
     display: block;
     width: 100%;
     background-color: #ff6f61;
-    color: white;
+    color: #fff;
     border: none;
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color .3s ease
 }
+
 .order-complete {
     display: block;
     width: 100%;
-    background-color: #ffffff;
-    color: #F27423;
+    background-color: #fff;
+    color: #f27423;
     border: none;
     padding: 10px;
     font-size: 16px;
     border-radius: 20px;
     cursor: pointer;
     margin-top: 20px;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
+    transition: background-color .3s ease;
+    font-weight: 700
 }
-.proceed-btn:hover, .place-btn:hover, .track-btn:hover {
-    background-color: #ff4a3d;
+
+.place-btn:hover,
+.proceed-btn:hover,
+.track-btn:hover {
+    background-color: #ff4a3d
 }
 
 .order-form {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 5px
 }
+
 .payment-method {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left:5px;
-    gap: 10px;
+    padding-left: 5px;
+    gap: 10px
 }
+
 .payment-method img {
     width: 20px;
-    height: 20px;
+    height: 20px
 }
+
 .order-details {
     border-radius: 16px;
     padding: 24px;
-    background-color: white;
+    background-color: #fff
 }
-.order-details, .delivery-time, .payment, .total {
-    margin-bottom: 20px;
+
+.delivery-time,
+.order-details,
+.payment,
+.total {
+    margin-bottom: 20px
 }
-.delivery-time h3, .payment h3 {
+
+.delivery-time h3,
+.payment h3 {
     font-size: 18px;
     color: #333;
-    margin-bottom: 5px;
+    margin-bottom: 5px
 }
 
-.order-details p, .delivery-time p, .payment p {
+.delivery-time p,
+.order-details p,
+.payment p {
     font-size: 16px;
     color: #777;
-    margin: 5px 0;
+    margin: 5px 0
 }
 
-.order-details a, .delivery-time a, .payment a {
+.delivery-time a,
+.order-details a,
+.payment a {
     font-size: 14px;
     color: #ff6f61;
-    text-decoration: none;
+    text-decoration: none
 }
 
-.order-details a:hover, .delivery-time a:hover, .payment a:hover {
-    text-decoration: underline;
+.delivery-time a:hover,
+.order-details a:hover,
+.payment a:hover {
+    text-decoration: underline
 }
 
 .order-details {
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .order-details h3 {
-    font-weight: bold;
+    font-weight: 700;
     font-size: 20px;
     color: #333;
-    margin-bottom: 5px;
+    margin-bottom: 5px
 }
 
 .order-details p {
     font-size: 14px;
-    color: #4C4C4C;
+    color: #4c4c4c;
     margin: 5px 0;
-    padding: 2px;
+    padding: 2px
 }
 
 .confirmation {
-    text-align: center;
+    text-align: center
 }
 
 .confirmation img {
@@ -511,53 +527,54 @@ header img {
     height: 150px;
     border-radius: 10px;
     object-fit: cover;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .confirmation p {
     font-size: 16px;
     color: #333;
-    margin: 10px 0;
+    margin: 10px 0
 }
 
 .confirmation p b {
-    color: #ff6f61;
+    color: #ff6f61
 }
 
 .form-group {
     border-bottom: #777;
     border: 5px;
-    display: block;
+    display: block
 }
 
 .form-group label {
     margin-top: 10px;
     display: block;
     font-size: 16px;
-    color: #333;
+    color: #333
 }
 
-.form-group input, .form-group select {
-    width: -webkit-fill-available; 
+.form-group input,
+.form-group select {
+    width: -webkit-fill-available;
     padding: 10px;
-    border: 0px solid #ddd;
+    border: 0 solid #ddd;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 14px
 }
 
 .form-group button {
     background-color: #ff6f61;
-    color: white;
+    color: #fff;
     border: none;
     padding: 10px;
     font-size: 14px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color .3s ease
 }
 
 .form-group button:hover {
-    background-color: #ff4a3d;
+    background-color: #ff4a3d
 }
 
 .name-input {
@@ -566,8 +583,8 @@ header img {
     align-items: center;
     gap: 10px;
     border: 10px;
-    border-color: #ff0000;
-    padding-left: 5px;
+    border-color: red;
+    padding-left: 5px
 }
 
 .phone-input {
@@ -577,17 +594,17 @@ header img {
     gap: 10px;
     border: 10px;
     border-color: #a33030;
-    padding-left: 5px;
+    padding-left: 5px
 }
 
 .name-input img {
     width: 20px;
-    height: 20px;
+    height: 20px
 }
 
 .phone-input img {
     width: 20px;
-    height: 20px;
+    height: 20px
 }
 
 .location-input {
@@ -596,28 +613,26 @@ header img {
     align-items: center;
     gap: 10px;
     justify-content: space-between;
-    padding-left: 5px;
+    padding-left: 5px
 }
 
 .location-input img {
     width: 20px;
-    height: 20px;
+    height: 20px
 }
 
 .location-container {
     position: relative;
-    width: 100%;
+    width: 100%
 }
 
-/* Input */
 #address {
     width: -webkit-fill-available;
-    padding: 8px 50px 8px 12px; /* Tạo khoảng trống cho button */
+    padding: 8px 50px 8px 12px;
     font-size: 14px;
-    outline: none;
+    outline: 0
 }
 
-/* Button bên trong input */
 #get-location {
     position: absolute;
     top: 50%;
@@ -626,30 +641,30 @@ header img {
     padding: 5px 10px;
     border: none;
     background-color: #ff4a3d;
-    color: white;
+    color: #fff;
     border-radius: 4px;
     font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color .3s
 }
 
 #order-status {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 20px
 }
 
 #order-status-message {
     font-size: 16px;
-    color: #333;
+    color: #333
 }
 
 #order-status-icon {
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 .quantity-controls {
     display: flex;
-    align-items: center;
+    align-items: center
 }
 
 .quantity-controls button {
@@ -659,20 +674,20 @@ header img {
     line-height: 20px;
     border: 1px solid #ccc;
     background: #f0f0f0;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .quantity-controls .quantity {
     width: 50px;
     text-align: center;
     border: 1px solid #ccc;
-    margin: 0 5px;
+    margin: 0 5px
 }
 
 #total-bill {
     margin-top: 20px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 700
 }
 
 .popup {
@@ -682,10 +697,10 @@ header img {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, .5);
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1000
 }
 
 .popup-content {
@@ -694,13 +709,13 @@ header img {
     border-radius: 10px;
     text-align: center;
     position: relative;
-    animation: popup-animation 0.5s ease-in-out;
+    animation: popup-animation .5s ease-in-out
 }
 
 .success-icon {
     width: 100px;
     height: 100px;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 #loading-overlay {
@@ -709,16 +724,16 @@ header img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, .5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 9999
 }
 
 #loading-spinner img {
     width: 150px;
-    height: 150px;
+    height: 150px
 }
 
 #success-popup {
@@ -726,33 +741,33 @@ header img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    background: #fff;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     z-index: 10000;
-    text-align: center;
+    text-align: center
 }
 
 #success-popup .popup-content img {
     width: 100px;
-    height: 100px;
+    height: 100px
 }
 
 #success-popup .popup-content p {
-    margin: 10px 0;
+    margin: 10px 0
 }
 
 #success-popup .popup-content button {
     padding: 10px 20px;
-    background: #4CAF50;
-    color: white;
+    background: #4caf50;
+    color: #fff;
     border: none;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 10px
 }
 
 #success-popup .popup-content button:hover {
-    background: #45a049;
+    background: #45a049
 }
 
 .confirm-button {
@@ -760,45 +775,46 @@ header img {
     position: sticky;
     display: block;
     background-color: #ff6f61;
-    color: white;
+    color: #fff;
     border: none;
     padding: 20px 20px;
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.5s ease;
-    width: 100%;
+    transition: background-color .5s ease;
+    width: 100%
 }
 
 .confirm-button:hover {
-    background-color: #ff4a3d;
+    background-color: #ff4a3d
 }
 
 .total-bill-confirm {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 100%
 }
 
-.total-text, .total-price {
-    font-weight: bold;
+.total-price,
+.total-text {
+    font-weight: 700;
     font-size: 16px;
-    color: #ffffff;
+    color: #fff
 }
 
 #qr-code {
     display: block;
     margin: 0 auto;
     width: 200px;
-    height: 200px;
+    height: 200px
 }
 
 .bank-transfer-details {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    align-self: center;
+    align-self: center
 }
 
 .call-buton .cc-calto-action-ripple {
@@ -813,9 +829,9 @@ header img {
     border-radius: 100%;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    color: #ffffff;
-    -webkit-animation: cc-calto-action-ripple 0.6s linear infinite;
-    animation: cc-calto-action-ripple 0.6s linear infinite;
+    color: #fff;
+    -webkit-animation: cc-calto-action-ripple .6s linear infinite;
+    animation: cc-calto-action-ripple .6s linear infinite;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -825,39 +841,41 @@ header img {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    text-decoration: none;
+    text-decoration: none
 }
 
 .call-buton .cc-calto-action-ripple i {
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
-    font-size: 2.2rem;
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+    font-size: 2.2rem
 }
 
 .call-buton .cc-calto-action-ripple:hover i {
     -webkit-transform: rotate(135deg);
-    transform: rotate(135deg);
+    transform: rotate(135deg)
 }
 
 @-webkit-keyframes cc-calto-action-ripple {
     0% {
-        -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 0 rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2);
-        box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 0 rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2);
+        -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, .2), 0 0 0 0 rgba(236, 139, 0, .2), 0 0 0 5px rgba(236, 139, 0, .2), 0 0 0 10px rgba(236, 139, 0, .2);
+        box-shadow: 0 4px 10px rgba(236, 139, 0, .2), 0 0 0 0 rgba(236, 139, 0, .2), 0 0 0 5px rgba(236, 139, 0, .2), 0 0 0 10px rgba(236, 139, 0, .2)
     }
+
     100% {
-        -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2), 0 0 0 20px rgba(236, 139, 0, 0);
-        box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2), 0 0 0 20px rgba(236, 139, 0, 0);
+        -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, .2), 0 0 0 5px rgba(236, 139, 0, .2), 0 0 0 10px rgba(236, 139, 0, .2), 0 0 0 20px rgba(236, 139, 0, 0);
+        box-shadow: 0 4px 10px rgba(236, 139, 0, .2), 0 0 0 5px rgba(236, 139, 0, .2), 0 0 0 10px rgba(236, 139, 0, .2), 0 0 0 20px rgba(236, 139, 0, 0)
     }
 }
 
 @keyframes cc-calto-action-ripple {
     0% {
-        -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 0 rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2);
-        box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 0 rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2);
+        -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, .2), 0 0 0 0 rgba(236, 139, 0, .2), 0 0 0 5px rgba(236, 139, 0, .2), 0 0 0 10px rgba(236, 139, 0, .2);
+        box-shadow: 0 4px 10px rgba(236, 139, 0, .2), 0 0 0 0 rgba(236, 139, 0, .2), 0 0 0 5px rgba(236, 139, 0, .2), 0 0 0 10px rgba(236, 139, 0, .2)
     }
+
     100% {
-        -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2), 0 0 0 20px rgba(236, 139, 0, 0);
-        box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2), 0 0 0 20px rgba(236, 139, 0, 0);
+        -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, .2), 0 0 0 5px rgba(236, 139, 0, .2), 0 0 0 10px rgba(236, 139, 0, .2), 0 0 0 20px rgba(236, 139, 0, 0);
+        box-shadow: 0 4px 10px rgba(236, 139, 0, .2), 0 0 0 5px rgba(236, 139, 0, .2), 0 0 0 10px rgba(236, 139, 0, .2), 0 0 0 20px rgba(236, 139, 0, 0)
     }
 }
 
@@ -866,24 +884,23 @@ span.num {
     color: #ec8b00;
     left: -60%;
     bottom: -50%;
-    background-color: white;
-    padding: 2px;
+    background-color: #fff;
+    padding: 2px
 }
 
-/* Media query for mobile devices */
-@media (max-width: 600px) {
+@media (max-width:600px) {
     .call-buton .cc-calto-action-ripple {
         width: 3rem;
         height: 3rem;
-        padding: 0.75rem;
+        padding: .75rem
     }
 
     .call-buton .cc-calto-action-ripple i {
-        font-size: 1.8rem;
+        font-size: 1.8rem
     }
 
     span.num {
-        font-size: 0.8rem;
-        background-color: white;
+        font-size: .8rem;
+        background-color: #fff
     }
 }
