@@ -137,9 +137,7 @@ header img {
 
 .categories {
     display: block;
-    gap: 10px;
-    margin: 20px 0;
-    overflow-x: auto
+    overflow-x: auto;
 }
 
 .categories button {
@@ -156,7 +154,7 @@ header img {
 
 .menu {
     display: block;
-    margin: 10px 0
+    margin: 5px 0;
 }
 
 .menu-item {
@@ -903,4 +901,15 @@ span.num {
         font-size: .8rem;
         background-color: #fff
     }
+}
+
+
+#category-select {
+    margin: 10px 0;
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
 }
