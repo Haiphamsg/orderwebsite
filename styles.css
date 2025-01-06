@@ -805,7 +805,7 @@ header img {
     z-index: 99999;
     position: fixed;
     right: 1rem;
-    bottom: 8rem;
+    bottom: 5.6rem;
     background: #ec8b00;
     width: 4rem;
     height: 4rem;
@@ -866,6 +866,8 @@ span.num {
     color: #ec8b00;
     left: -60%;
     bottom: -50%;
+    background-color: white;
+    padding: 2px;
 }
 
 /* Media query for mobile devices */
@@ -882,5 +884,6 @@ span.num {
 
     span.num {
         font-size: 0.8rem;
+        background-color: white;
     }
 }
