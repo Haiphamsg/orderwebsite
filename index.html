@@ -23,8 +23,10 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <!--<img src="img/logo.jpg" alt="logo"> -->
-            <h1><i class="fa-solid fa-star fa-2xs" style="color: #c4392d;"></i> Há Cảo - Bà Bi Lùn <i class="fa-solid fa-star fa-2xs" style="color: #c4392d;"></i></h1>
+            <div class="header-logo">
+                <img src="img/logo.jpg" alt="logo" style="width: 40px">
+                <h1>Há Cảo - Bà Bi Lùn</h1>
+            </div>
             <img src="img/herosection.jpg" alt="herosection">
         </header>
 
@@ -33,16 +35,16 @@
             <input type="text" id="search-input" placeholder="Tìm kiếm món ăn" oninput="showSuggestions()" onkeydown="handleKeyDown(event)">
             <div id="suggestions-container"></div>
             <i class="fas fa-search"></i>
-
         </div>
 
         <!-- Categories -->
-        <div class="category-select">
-        <select id="category-select" onchange="scrollToCategory()">
-            <option value="">Chọn danh mục</option>
-        </select>
+        <div class="category-select sticky">
+            <select id="category-select" onchange="scrollToCategory()">
+                <option value="">Chọn danh mục</option>
+            </select>
         </div>
         <div class="categories" id="categories"></div>
+
         <!-- Menu -->
         <div class="menu">
             <div id="menu-items"></div>

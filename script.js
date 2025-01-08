@@ -43,9 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
         productElement.dataset.price = product.price.discounted;
 
         productElement.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" onclick="toggleDetails(this)">
+            <img src="${product.image}" alt="${product.name}">
             <div class="details">
-                <h3 onclick="toggleDetails(this)">${product.name}</h3>
+                <h3>${product.name}</h3>
                 <p>${product.description || ''}</p>
                 <div class="rating">
                     <span class="stars">⭐ ${product.rating || ''}</span>
@@ -55,9 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button onclick="changeQuantity(this, -1)">-</button>
                     <span class="quantity">0</span>
                     <button onclick="changeQuantity(this, 1)">+</button>
-                </div>
-                <div class="product-details" style="display: none;">
-                    <p>Additional details about the ${product.name}...</p>
                 </div>
             </div>
         `;
@@ -76,8 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function smoothScrollTo(element) {
-        const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        const startPosition = window.pageYOffset;
+        const yOffset = -50; // Adjusted for the fixed header
+        const targetPosition = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        const startPosition = window.scrollY;
         const distance = targetPosition - startPosition;
         const duration = 1000;
         let start = null;

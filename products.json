@@ -1,302 +1,330 @@
 {
     "categories": [
-      {
-        "name": "Dimsum hấp",
-        "items": [
-          {
-            "name": "6 há cảo thập cẩm",
-            "description": "Gồm 6 viên há cảo bất kỳ",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlf2ncqink15",
-            "price": {
-              "original": 65000,
-              "discounted": 58500
-            }
-          },
-          {
-            "name": "5 há cảo tôm",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlh8e508og92",
-            "price": {
-              "original": 59000,
-              "discounted": 53100
-            }
-          },
-          {
-            "name": "5 xíu mại tôm",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyuqkh3do094",
-            "price": {
-              "original": 59000,
-              "discounted": 53100
-            }
-          },
-          {
-            "name": "10 há cảo thập cẩm",
-            "description": "Gồm 10 viên há cảo bất kỳ",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vl3k4rbxf415",
-            "price": {
-              "original": 95000,
-              "discounted": 85500
-            }
-          },
-          {
-            "name": "5 há cảo sò điệp",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyy3rbqvhs47",
-            "price": {
-              "original": 65000,
-              "discounted": 58500
-            }
-          },
-          {
-            "name": "5 bánh xếp hải sản",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2w98ovk1jhs91",
-            "price": {
-              "original": 55000,
-              "discounted": 49500
-            }
-          },
-          {
-            "name": "3 bánh cuốn hải sản",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2w9c6r3u60gbf",
-            "price": {
-              "original": 65000,
-              "discounted": 58500
-            }
-          },
-          {
-            "name": "3 bánh cuốn xá xíu",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wiek0c80smdc",
-            "price": {
-              "original": 70000,
-              "discounted": 63000
-            }
-          },
-          {
-            "name": "3 bánh bao kim sa",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wig2f8lg4w8a",
-            "price": {
-              "original": 50000,
-              "discounted": 45000
-            }
-          },
-          {
-            "name": "5 há cảo thập cẩm",
-            "description": "Gồm 5 viên há cảo bất kỳ",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vled1c7rw047",
-            "price": {
-              "original": 55000,
-              "discounted": 49500
-            }
-          },
-          {
-            "name": "Set 16 viên há cảo mix 4 vị",
-            "description": "Há cảo tôm, xíu mại tôm, há cảo hẹ, há cảo hải sản hoa hồng",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vl893m2epcfd",
-            "price": {
-              "original": 150000,
-              "discounted": 135000
-            }
-          },
-          {
-            "name": "Set 24 viên há cảo mix 6 vị",
-            "description": "Há cảo tôm, há cảo than tre, xíu mại tôm, há cảo hẹ, há cảo sò điệp hồng, há cảo hải sản hoa hồng",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlcjq3sir454",
-            "price": {
-              "original": 250000,
-              "discounted": 225000
-            }
-          },
-          {
-            "name": "5 há cảo than tre",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vllk86x78wae",
-            "price": {
-              "original": 69000,
-              "discounted": 62100
-            }
-          },
-          {
-            "name": "5 bánh cuốn hải sản",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2w9ieyjql8032",
-            "price": {
-              "original": 105000,
-              "discounted": 94500
-            }
-          },
-          {
-            "name": "5 bánh cuốn xá xíu",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wif2ymj0ts76",
-            "price": {
-              "original": 115000,
-              "discounted": 103500
-            }
-          },
-          {
-            "name": "6 bánh bao kim sa",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wighcyqju8fc",
-            "price": {
-              "original": 100000,
-              "discounted": 90000
-            }
-          },
-          {
-            "name": "3 bánh bao xá xíu",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wiieb5u5m832",
-            "price": {
-              "original": 65000,
-              "discounted": 58500
-            }
-          },
-          {
-            "name": "6 bánh bao xá xíu",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wymdlrinzk35",
-            "price": {
-              "original": 115000,
-              "discounted": 103500
-            }
-          },
-          {
-            "name": "3 bánh bao xíu mại trứng muối",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wymvr6yga815",
-            "price": {
-              "original": 69000,
-              "discounted": 62100
-            }
-          },
-          {
-            "name": "6 bánh bao xíu mại trứng muối",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyndg9270087",
-            "price": {
-              "original": 125000,
-              "discounted": 112500
-            }
-          }
-        ]
-      },
-      {
-        "name": "Dimsum chay hấp",
-        "items": [
-          {
-            "name": "Set 1 bánh cuốn 4 há cảo chay",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlv5nbfwfk4b",
-            "price": {
-              "original": 65000,
-              "discounted": 58500
-            }
-          },
-          {
-            "name": "5 há cảo chay",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlrwcb3rhs1c",
-            "price": {
-              "original": 55000,
-              "discounted": 49500
-            }
-          },
-          {
-            "name": "3 bánh cuốn chay",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlts8hqzu847",
-            "price": {
-              "original": 55000,
-              "discounted": 49500
-            }
-          }
-        ]
-      },
-      {
-        "name": "Dimsum đông lạnh",
-        "items": [
-          {
-            "name": "Há cảo tôm 40 viên (kèm nước chấm)",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vynccm2s3e43",
-            "price": {
-              "original": 269000,
-              "discounted": 242100
-            }
-          },
-          {
-            "name": "Xíu mại tôm 40 viên (kèm nước chấm)",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vyo68mc7w010",
-            "price": {
-              "original": 275000,
-              "discounted": 247500
-            }
-          },
-          {
-            "name": "20 Bánh cuốn hải sản",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vyq1tzfab4b5",
-            "price": {
-              "original": 280000,
-              "discounted": 252000
-            }
-          },
-          {
-            "name": "10 bánh cuốn xá xíu",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyopjcoxrkbe",
-            "price": {
-              "original": 160000,
-              "discounted": 144000
-            }
-          },
-          {
-            "name": "20 bánh cuốn rau củ chay",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyp9qv4b8wf7",
-            "price": {
-              "original": 200000,
-              "discounted": 180000
-            }
-          },
-          {
-            "name": "Tôm xù chiên giòn 3 màu",
-            "description": "Tôm xù 1 vĩ 10 con",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyz53x619sd1",
-            "price": {
-              "original": 120000,
-              "discounted": 108000
-            }
-          }
-        ]
-      },
-      {
-        "name": "Panna cotta",
-        "items": [
-          {
-            "name": "Panna cotta vị đào",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2z4ch84zkz469",
-            "price": {
-              "original": 16000,
-              "discounted": 14400
-            }
-          },
-          {
-            "name": "Panna cotta vị chanh dây",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2z46y1wgcts8e",
-            "price": {
-              "original": 16000,
-              "discounted": 14400
-            }
-          },
-          {
-            "name": "Panna cotta vị dâu",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2z48c4b6qy85d",
-            "price": {
-              "original": 16000,
-              "discounted": 14400
-            }
-          },
-          {
-            "name": "Panna cotta vị kiwi",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2z49oom4bg0b7",
-            "price": {
-              "original": 16000,
-              "discounted": 14400
-            }
-          },
-          {
-            "name": "Panna cotta vị phúc bồn tử",
-            "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2z45kmis83qfa",
-            "price": {
-              "original": 16000,
-              "discounted": 14400
-            }
-          }
-        ]
-      }
+        {
+            "name": "Dimsum chay hấp",
+            "items": [
+                {
+                    "name": "Set 1 bánh cuốn 4 há cảo chay",
+                    "description": "Gồm Set 1 bánh cuốn 4 há cảo chay",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlv5nbfwfk4b",
+                    "price": {
+                        "original": 45000,
+                        "discounted": 45000
+                    }
+                },
+                {
+                    "name": "5 há cảo chay",
+                    "description": "Gồm 5 há cảo chay",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlrwcb3rhs1c",
+                    "price": {
+                        "original": 35000,
+                        "discounted": 35000
+                    }
+                },
+                {
+                    "name": "3 bánh cuốn chay",
+                    "description": "Gồm 4 viên bánh cuốn chay",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlts8hqzu847",
+                    "price": {
+                        "original": 45000,
+                        "discounted": 45000
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Dimsum hấp",
+            "items": [
+                {
+                    "name": "5 há cảo thập cẩm",
+                    "description": "Gồm 5 viên há cảo bất kỳ",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vled1c7rw047",
+                    "price": {
+                        "original": 37000,
+                        "discounted": 37000
+                    }
+                },
+                {
+                    "name": "6 há cảo thập cẩm",
+                    "description": "Gồm 6 viên há cảo bất kỳ",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlf2ncqink15",
+                    "price": {
+                        "original": 42000,
+                        "discounted": 42000
+                    }
+                },
+                {
+                    "name": "10 há cảo thập cẩm",
+                    "description": "Gồm 10 viên há cảo bất kỳ",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vl3k4rbxf415",
+                    "price": {
+                        "original": 69000,
+                        "discounted": 69000
+                    }
+                },
+                {
+                    "name": "Combo 16 viên há cảo mix 4 vị",
+                    "description": "Há cảo tôm, xíu mại tôm, há cảo hẹ, há cảo hải sản hoa hồng",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vl893m2epcfd",
+                    "price": {
+                        "original": 105000,
+                        "discounted": 105000
+                    }
+                },
+                {
+                    "name": "Combo 24 viên há cảo mix 6 vị",
+                    "description": "Há cảo tôm, há cảo than tre, xíu mại tôm, há cảo hẹ, há cảo sò điệp hồng, há cảo hải sản hoa hồng",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlcjq3sir454",
+                    "price": {
+                        "original": 250000,
+                        "discounted": 225000
+                    }
+                },
+                {
+                    "name": "5 há cảo tôm",
+                    "description": "Gồm 5 viên há cảo tôm",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vlh8e508og92",
+                    "price": {
+                        "original": 35000,
+                        "discounted": 35000
+                    }
+                },
+                {
+                    "name": "5 xíu mại tôm",
+                    "description": "Gồm 5 viên xíu mại tôm",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyuqkh3do094",
+                    "price": {
+                        "original": 35000,
+                        "discounted": 35000
+                    }
+                },
+                {
+                    "name": "5 há cảo sò điệp",
+                    "description": "Gồm 5 viên há cảo sò điệp",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyy3rbqvhs47",
+                    "price": {
+                        "original": 40000,
+                        "discounted": 40000
+                    }
+                },
+                {
+                    "name": "5 bánh xếp hải sản",
+                    "description": "Gồm 5 bánh xếp hải sản",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2w98ovk1jhs91",
+                    "price": {
+                        "original": 35000,
+                        "discounted": 35000
+                    }
+                },
+                {
+                    "name": "3 bánh cuốn hải sản",
+                    "description": "Gồm 3 bánh cuốn hải sản",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2w9c6r3u60gbf",
+                    "price": {
+                        "original": 45000,
+                        "discounted": 45000
+                    }
+                },
+                {
+                    "name": "3 bánh cuốn xá xíu",
+                    "description": "Gồm 3 bánh cuốn xá xíu",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wiek0c80smdc",
+                    "price": {
+                        "original": 49000,
+                        "discounted": 49000
+                    }
+                },
+                {
+                    "name": "3 bánh bao kim sa",
+                    "description": "Gồm 3 bánh bao kim sa",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wig2f8lg4w8a",
+                    "price": {
+                        "original": 39000,
+                        "discounted": 39000
+                    }
+                },
+                {
+                    "name": "5 há cảo than tre",
+                    "description": "Gồm 5 há cảo than tre",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vllk86x78wae",
+                    "price": {
+                        "original": 40000,
+                        "discounted": 40000
+                    }
+                },
+                {
+                    "name": "5 bánh cuốn hải sản",
+                    "description": "Gồm 9 viên bánh cuốn hải sản",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2w9ieyjql8032",
+                    "price": {
+                        "original": 70000,
+                        "discounted": 70000
+                    }
+                },
+                {
+                    "name": "5 bánh cuốn xá xíu",
+                    "description": "Gồm 5 bánh cuốn xá xíu",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wif2ymj0ts76",
+                    "price": {
+                        "original": 75000,
+                        "discounted": 75000
+                    }
+                },
+                {
+                    "name": "6 bánh bao kim sa",
+                    "description": "Gồm 9 viên bánh bao kim sa",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wighcyqju8fc",
+                    "price": {
+                        "original": 100000,
+                        "discounted": 100000
+                    }
+                },
+                {
+                    "name": "3 bánh bao xá xíu",
+                    "description": "Gồm 3 bánh bao xá xíu",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wiieb5u5m832",
+                    "price": {
+                        "original": 49000,
+                        "discounted": 49000
+                    }
+                },
+                {
+                    "name": "6 bánh bao xá xíu",
+                    "description": "Gồm 6 bánh bao xá xíu",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wymdlrinzk35",
+                    "price": {
+                        "original": 95000,
+                        "discounted": 95000
+                    }
+                },
+                {
+                    "name": "3 bánh bao xíu mại trứng muối",
+                    "description": "Gồm 6 viên bánh bao xíu mại trứng muối",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wymvr6yga815",
+                    "price": {
+                        "original": 55000,
+                        "discounted": 55000
+                    }
+                },
+                {
+                    "name": "6 bánh bao xíu mại trứng muối",
+                    "description": "Gồm 6 bánh bao xíu mại trứng muối",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyndg9270087",
+                    "price": {
+                        "original": 105000,
+                        "discounted": 105000
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Dimsum đông lạnh",
+            "items": [
+                {
+                    "name": "Há cảo tôm 40 viên (kèm nước chấm)",
+                    "description": "Gồm Há cảo tôm 40 viên kèm nước chấm",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vynccm2s3e43",
+                    "price": {
+                        "original": 175000,
+                        "discounted": 175000
+                    }
+                },
+                {
+                    "name": "Xíu mại tôm 40 viên (kèm nước chấm)",
+                    "description": "Gồm Xíu mại tôm 40 viên kèm nước chấm",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vyo68mc7w010",
+                    "price": {
+                        "original": 180000,
+                        "discounted": 180000
+                    }
+                },
+                {
+                    "name": "20 Bánh cuốn hải sản",
+                    "description": "Gồm 20 Bánh cuốn hải sản",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2vyq1tzfab4b5",
+                    "price": {
+                        "original": 200000,
+                        "discounted": 200000
+                    }
+                },
+                {
+                    "name": "10 bánh cuốn xá xíu",
+                    "description": "Gồm 10 bánh cuốn xá xíu",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyopjcoxrkbe",
+                    "price": {
+                        "original": 110000,
+                        "discounted": 110000
+                    }
+                },
+                {
+                    "name": "20 bánh cuốn rau củ chay",
+                    "description": "Gồm 20 bánh cuốn rau củ chay",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyp9qv4b8wf7",
+                    "price": {
+                        "original": 160000,
+                        "discounted": 160000
+                    }
+                },
+                {
+                    "name": "Tôm xù chiên giòn 3 màu",
+                    "description": "Tôm xù 1 vĩ 10 con",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2wyz53x619sd1",
+                    "price": {
+                        "original": 85000,
+                        "discounted": 85000
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Panna cotta",
+            "items": [
+                {
+                    "name": "Panna cotta vị đào",
+                    "description": "Gồm Panna cotta vị đào",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2z4ch84zkz469",
+                    "price": {
+                        "original": 15000,
+                        "discounted": 15000
+                    }
+                },
+                {
+                    "name": "Panna cotta vị chanh dây",
+                    "description": "Gồm Panna cotta vị chanh dây",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2z46y1wgcts8e",
+                    "price": {
+                        "original": 15000,
+                        "discounted": 15000
+                    }
+                },
+                {
+                    "name": "Panna cotta vị dâu",
+                    "description": "Gồm Panna cotta vị dâu",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2z48c4b6qy85d",
+                    "price": {
+                        "original": 15000,
+                        "discounted": 15000
+                    }
+                },
+                {
+                    "name": "Panna cotta vị kiwi",
+                    "description": "Gồm Panna cotta vị kiwi",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2z49oom4bg0b7",
+                    "price": {
+                        "original": 15000,
+                        "discounted": 15000
+                    }
+                },
+                {
+                    "name": "Panna cotta vị phúc bồn tử",
+                    "description": "Gồm Panna cotta vị phúc bồn tử",
+                    "image": "https://down-tx-vn.img.susercontent.com/vn-11134517-7ras8-m2z45kmis83qfa",
+                    "price": {
+                        "original": 15000,
+                        "discounted": 15000
+                    }
+                }
+            ]
+        }
     ]
-  }
+}
