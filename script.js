@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function smoothScrollTo(element) {
-        const yOffset = -50; // Adjusted for the fixed header
+        const yOffset = -60; // Adjusted for the fixed header
         const targetPosition = element.getBoundingClientRect().top + window.scrollY + yOffset;
         const startPosition = window.scrollY;
         const distance = targetPosition - startPosition;
