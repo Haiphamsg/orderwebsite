@@ -38,9 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function createProductElement(product) {
         const productElement = document.createElement('div');
+        const itemId = `item-${product.name.replace(/\s+/g, '-').toLowerCase()}`; // Create unique ID
+        productElement.id = itemId; // Set the ID on the element
         productElement.classList.add('menu-item');
         productElement.dataset.name = product.name;
         productElement.dataset.price = product.price.discounted;
+        productElement.dataset.id = itemId; // Store ID in dataset for suggestions
 
         productElement.innerHTML = `
             <img src="${product.image}" alt="${product.name}">
@@ -160,6 +163,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 suggestion.onclick = () => {
                     document.getElementById('search-input').value = item.dataset.name;
                     suggestionsContainer.innerHTML = '';
+                    const targetElement = document.getElementById(item.dataset.id); // Assuming each item has an ID corresponding to its data-id attribute
+                    if (targetElement) {
+                        smoothScrollTo(targetElement);
+                    }
                 };
                 suggestionsContainer.appendChild(suggestion);
             }
