@@ -70,6 +70,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    margin:auto;
 }
 
 header img {
@@ -388,7 +389,7 @@ special-request textarea {
     display: block;
     width: 100%;
     background-color: #fff;
-    color: #b3d328;
+    color: #006779;
     border: none;
     padding: 10px;
     font-size: 16px;
@@ -751,7 +752,7 @@ special-request textarea {
 }
 
 .confirm-button:hover {
-    background-color: #ff4a3d
+    background-color: #006779
 }
 
 .total-bill-confirm {
