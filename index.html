@@ -31,21 +31,20 @@
             </div>
             <img src="img/herosection.jpg" alt="herosection">
         </header>
-        
-        <!-- Search bar -->
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Tìm kiếm món ăn" oninput="showSuggestions()" onkeydown="handleKeyDown(event)">
-            <div id="suggestions-container"></div>
-            <i class="fas fa-search"></i>
+        <div class="SearchAndCatergory sticky">
+            <!-- Categories -->
+            <div class="category-select">
+                <select id="category-select" onchange="scrollToCategory()">
+                    <option value="">Chọn danh mục</option>
+                </select>
+            </div>
+            <!-- Search bar -->
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Tìm kiếm món ăn" oninput="showSuggestions()" onkeydown="handleKeyDown(event)">
+                <div id="suggestions-container"></div>
+                <i class="fas fa-search"></i>
+            </div>
         </div>
-
-        <!-- Categories -->
-        <div class="category-select sticky">
-            <select id="category-select" onchange="scrollToCategory()">
-                <option value="">Chọn danh mục</option>
-            </select>
-        </div>
-        <div class="categories" id="categories"></div>
 
         <!-- Menu -->
         <div class="menu">

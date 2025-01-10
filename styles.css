@@ -83,46 +83,9 @@ header img {
     border: 4px solid transparent
 }
 
-.search-bar {
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto
-}
 
-.search-bar input {
-    flex: 1;
-    padding: 10px 10px 10px 30px;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    outline: 0
-}
 
-.search-bar button {
-    background-color: #ff6f61;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-}
 
-#suggestions-container {
-    position: absolute;
-    background: #fff;
-    border: 1px #ccc;
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 1000;
-    top: 100%;
-    left: 0;
-    right: 0;
-    border-top: none
-}
 
 .suggestion {
     padding: 10px;
@@ -357,14 +320,16 @@ header img {
     margin-bottom: 5px
 }
 
-.special-request textarea {
+special-request textarea {
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 14px
 }
-
-.special-request textarea {
+#request {
+    width: 100%;
+}
+special-request textarea {
     width: 100%;
     box-sizing: border-box
 }
@@ -805,9 +770,8 @@ header img {
 
 #qr-code {
     display: block;
-    margin: 0 auto;
-    width: 200px;
-    height: 200px
+    width: 100%;
+    align-items: center;
 }
 
 .bank-transfer-details {
@@ -906,15 +870,7 @@ span.num {
 }
 
 
-#category-select {
-    margin: 10px 0;
-    width: 100%;
-    padding: 10px 5px;
-    border: 1px solid #E9E9E9;
-    border-radius: 10px;
-    background-color: #fafafa;
-    font-size: 16px;
-}
+
 
 /* styles.css */
 .sticky {
@@ -954,3 +910,109 @@ h2  {
     border-radius: 50%;
     margin-right: 10px;
 }
+
+
+.SearchAndCatergory {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    /* display: flex; */
+    /* align-items: right; */
+    margin: 20px 0;
+    position: relative;
+    width: 28%;
+    transition: width 0.3s ease;
+    /* margin: 0 auto */
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 12px 10px 12px 30px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    outline: 0;
+    width: 100%;
+}
+
+.search-bar input:focus {
+    border-color: #b3d328;
+    width: 100%;
+}
+
+.category-select {
+    width: 70%;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Add new rules for focus state */
+.search-bar input:focus ~ .category-select,
+.search-bar input:focus + .category-select {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.search-bar:has(input:focus) {
+    width: 100%;
+}
+
+#category-select {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    color: #444;
+    
+    /* Custom dropdown arrow */
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23555%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+}
+
+#category-select:hover {
+    border-color: #008786;
+    /* transform: translateY(-1px); */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#category-select:focus {
+    outline: none;
+    border-color: #b3d328;
+    box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.2);
+}
+
+#category-select option {
+    padding: 12px;
+    background: white;
+    color: #444;
+}
+
+#category-select option:hover {
+    background-color: #f0f0f0;
+}
+
+#suggestions-container {
+    position: absolute;
+    background: #fff;
+    border: 1px #ccc;
+    width: 100%;
+    max-height: 200px;
+    /* overflow-y: auto; */
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-top: none
+}
+

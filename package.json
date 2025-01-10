@@ -17,5 +17,8 @@
     "express": "^4.21.2",
     "fireworks-js": "^2.10.8",
     "nodemailer": "^6.9.16"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2"
   }
 }
